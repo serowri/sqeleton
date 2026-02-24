@@ -39,7 +39,7 @@ state.get_state_vector()
 # Note
 Sqeleton is so short and simple that lack precision(now especially calculation results).  
 Sqeleton is very slow.  
-Now available add_#_gate() (#: choose from {X,Y,Z,H,T,CONT}).
+Now available add_#_gate() (#: choose from {X,Y,Z,H,T,CNOT}).
 
 # License
 "Sqeleton" is under [MIT license]
