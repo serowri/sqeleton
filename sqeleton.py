@@ -2,6 +2,11 @@ import numpy as np
 from collections import deque
 
 class QuantumState:
+    def __new__(cls, num: int):
+        if num > 19:
+            raise ValueError("Memory Attention!(Must n_qubits < 20)")
+        return super().__new__(cls)
+
     def __init__(self, num: int):
         self.num = num
         self.state = (np.zeros((2**num, 1), dtype=complex))
@@ -17,10 +22,13 @@ class QuantumCircuit:
     Z_gate = np.array([[1,0],[0,-1]])
     H_gate = np.array([[1,1],[1,-1]])/np.sqrt(2)
     T_gate = np.array([[1,0],[0,np.exp(1j*np.pi/4)]])
-    zz = np.array([[1,0],[0,0]]) # zz(zero zero) ->|0><0|
-    oo = np.array([[0,0],[0,1]]) # oo(one one) -> |1><1|
+    P0 = np.array([[1,0],[0,0]]) # P0 ->|0><0|
+    P1 = np.array([[0,0],[0,1]]) # P1 -> |1><1|
 
-
+    def __new__(cls, num: int):
+        if num > 19:
+            raise ValueError("Memory Attention!(Must n_qubits < 20)")
+        return super().__new__(cls)
 
     def __init__(self, num: int):
         self.num = num
@@ -64,8 +72,8 @@ class QuantumCircuit:
             elif(key == "t"):
                 matrix = self.T_gate
             elif(key == "cnot"):
-                alpha = self.zz
-                beta = self.oo
+                alpha = self.P0
+                beta = self.P1
                 for i in range(value1):
                     alpha = np.kron(alpha, self.I_gate)
                 for i in range(self.num - 1 - value1):
@@ -93,5 +101,6 @@ class QuantumCircuit:
             state.state = np.matmul(matrix, state.state)
 
         self.gateArray.clear()
+        state.state[np.abs(state.state) < 1e-12] = 0 #optional
         return None
     
