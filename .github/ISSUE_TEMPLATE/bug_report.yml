@@ -39,7 +39,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      description: describe expected behavior
+      description: describe expected behavior.
     validations:
       required: False
   
@@ -47,6 +47,6 @@ body:
     id: todo
     attributes:
       label: To Do
-      description: describe to do
+      description: describe to do.
     validations:
       required: False

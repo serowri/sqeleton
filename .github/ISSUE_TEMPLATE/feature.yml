@@ -31,3 +31,11 @@ body:
         - Migration from prototype to sqeleton
         - New feature
         - Documentation
+
+  - type: textarea
+    id: addtional
+    attributes:
+      label: Addtional Context
+      description: Any other context.
+    validations:
+      required: False
