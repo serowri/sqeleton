@@ -10,15 +10,16 @@ body:
       description: A clear and concise description of what feature is.
     validations:
       required: True
-  
 
-  - type: textarea
-    id: todo
+  - type: dropdown
+    id: type
     attributes:
-      label: To Do
-      description: describe to do
-    validations:
-      required: False
+      label: feature type
+      description: requests?
+      multiple: True
+      options:
+        - requests(suggestion)
+        - develop
 
   - type: dropdown
     id: attribution
@@ -30,6 +31,15 @@ body:
         - Migration from prototype to sqeleton
         - New feature
         - Documentation
+        - CI
+
+  - type: textarea
+    id: todo
+    attributes:
+      label: To Do
+      description: describe to do
+    validations:
+      required: False
 
   - type: textarea
     id: addtional
