@@ -11,6 +11,10 @@ body:
     validations:
       required: True 
 
+  - type: markdown
+    attributes:
+      value: "---"
+
   - type: dropdown
     id: type
     attributes:
@@ -20,6 +24,10 @@ body:
       options:
         - report
         - fix
+
+  - type: markdown
+    attributes:
+      value: "---"
 
   - type: markdown
     attributes:
@@ -43,6 +51,10 @@ body:
     validations:
       required: False
 
+  - type: markdown
+    attributes:
+      value: "---"
+
   - type: textarea
     id: expected
     attributes:
@@ -50,6 +62,10 @@ body:
       description: describe expected behavior.
     validations:
       required: False
+
+  - type: markdown
+    attributes:
+      value: "---"
   
   - type: textarea
     id: todo
