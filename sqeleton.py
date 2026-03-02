@@ -13,7 +13,11 @@ class QuantumState:
         self.state[0][0] = 1
 
     def get_state_vector(self):
-        print(self.state)
+        digit = "0" + str(self.num) + "b"
+        for i, vector in enumerate(self.state):
+            print("|" + format(i, digit) +">:", end=" ")
+            print(vector)
+
 
 class QuantumCircuit:
     I_gate = np.array([[1,0],[0,1]])

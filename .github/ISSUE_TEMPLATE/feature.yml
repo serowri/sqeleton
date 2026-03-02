@@ -11,6 +11,10 @@ body:
     validations:
       required: True
 
+  - type: markdown
+    attributes:
+      value: "---"
+
   - type: dropdown
     id: type
     attributes:
@@ -20,6 +24,10 @@ body:
       options:
         - requests(suggestion)
         - develop
+
+  - type: markdown
+    attributes:
+      value: "---"
 
   - type: dropdown
     id: attribution
@@ -33,6 +41,10 @@ body:
         - Documentation
         - CI
 
+  - type: markdown
+    attributes:
+      value: "---"
+
   - type: textarea
     id: todo
     attributes:
@@ -40,6 +52,10 @@ body:
       description: describe to do
     validations:
       required: False
+
+  - type: markdown
+    attributes:
+      value: "---"
 
   - type: textarea
     id: addtional
