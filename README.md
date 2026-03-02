@@ -58,6 +58,7 @@ state.get_state_vector()
 ```
 
 # Note
+Right end qubit is LSB: $|q_n,...,q_1,q_0>$  
 Sqeleton is so short, slow and simple ~~that lack precision(now especially calculation results)~~.   
 Now available `add_#_gate()` (#: choose from {X,Y,Z,H,T,CNOT}).  
 Limitation: `n-qubits < 20`.
