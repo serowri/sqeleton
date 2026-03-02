@@ -11,6 +11,16 @@ body:
     validations:
       required: True 
 
+  - type: dropdown
+    id: type
+    attributes:
+      label: feature type
+      description: report?
+      multiple: True
+      options:
+        - report
+        - fix
+
   - type: markdown
     attributes:
       value: Explain how to reproduce the bug or problem

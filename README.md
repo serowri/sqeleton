@@ -5,9 +5,9 @@ Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircui
 
 # Architecture
 ## Class: QuantumState
-n-qubits QuantumState is implemented by numpy column vector(2^n) and set zero state.  
+n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero state.  
 
-get_state_vector() method shows n-qubits state vector.
+`get_state_vector()` method shows n-qubits state vector.
 
 ```bash
 2qubits
@@ -18,9 +18,10 @@ get_state_vector() method shows n-qubits state vector.
 ```
 
 ## Class: QuantumCircuit
-Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (np.kron(A,B)) operators, derived and validated through manual linear algebra calculations (np.matmul(C,D)).  
+Created matrix($2^n*2^n$) directly every gate when applied `update_quantum_state()` method.  
+Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
 
-Deque has applied gates order and is used when call update_quantum_state() method.
+Deque has applied gates order and is used when call `update_quantum_state()` method.
 
 # Feature
 Easy to understand(100LOC python) and support to understand how recently quantum circuit simulators are built by reading sqeleton code.   
@@ -32,7 +33,7 @@ Sqeleton has simulator core logic.
 * numpy
 
 # Usage
-clone sqeleton.py from this repository and import it.  
+Clone sqeleton.py from this repository and import it.  
 
 usage.py is a simple example file for how to use this simulator quickly. 
 
@@ -57,9 +58,12 @@ state.get_state_vector()
 ```
 
 # Note
-Sqeleton is so short and simple that lack precision(now especially calculation results).  
-Sqeleton is very slow.  
-Now available add_#_gate() (#: choose from {X,Y,Z,H,T,CNOT}).
+Sqeleton is so short, slow and simple ~~that lack precision(now especially calculation results)~~.   
+Now available `add_#_gate()` (#: choose from {X,Y,Z,H,T,CNOT}).  
+Limitation: `n-qubits < 20`.
 
-# License
-"Sqeleton" is under [MIT license]
+
+# Looking forward to your comments!
+> [Discussion](https://github.com/serowri/sqeleton/discussions/6)
+
+# MIT License
