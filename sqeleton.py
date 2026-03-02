@@ -35,38 +35,38 @@ class QuantumCircuit:
         self.gateArray = deque()
 
     def add_X_gate(self, num: int):
-        if num < 0 or self.num < num:
+        if num < 0 or self.num-1 < num:
             print("not applied X_gate(index error).")
             return None
         self.gateArray.append(("x",num))
         return None
     def add_Y_gate(self, num: int):
-        if num < 0 or self.num < num:
+        if num < 0 or self.num-1 < num:
             print("not applied Y_gate(index error).")
             return None
         self.gateArray.append(("y",num))
         return None
     def add_Z_gate(self, num: int):
-        if num < 0 or self.num < num:
+        if num < 0 or self.num-1 < num:
             print("not applied Z_gate(index error).")
             return None
         self.gateArray.append(("z",num))
         return None
     def add_H_gate(self, num: int):
-        if num < 0 or self.num < num:
+        if num < 0 or self.num-1 < num:
             print("not applied H_gate(index error).")
             return None
         self.gateArray.append(("h",num))
         return None
     def add_T_gate(self, num: int):
-        if num < 0 or self.num < num:
+        if num < 0 or self.num-1 < num:
             print("not applied T_gate(index error).")
             return None
         self.gateArray.append(("t",num))
         return None
 
     def add_CNOT_gate(self, a: int, b: int):
-        if a<0 or self.num < a or b<0 or self.num < b:
+        if a<0 or self.num-1 < a or b<0 or self.num-1 < b:
             print("not applied CNOT_gate(index error).")
             return None
         self.gateArray.append(("cnot",a,b))
