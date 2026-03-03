@@ -17,7 +17,7 @@ body:
 
   - type: markdown
     attributes:
-      value: Explain how to reproduce the bug or problem
+      value: Explain how to reproduce the bug or problem.
 
   - type: textarea
     id: steps
