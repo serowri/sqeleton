@@ -10,10 +10,10 @@ n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero 
 `get_state_vector()` method shows n-qubits state vector.
 
 ```bash
-|00>: 0.70710678+0.j 
-|01>: 0.        +0.j 
-|10>: 0.        +0.j 
-|11>: 0.70710678+0.j 
+|00>: [0.70710678+0.j]
+|01>: [0.        +0.j] 
+|10>: [0.        +0.j] 
+|11>: [0.70710678+0.j] 
 ```
 
 ## Class: QuantumCircuit
