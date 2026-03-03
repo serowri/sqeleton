@@ -1,0 +1,57 @@
+name: Issue:Task
+description: Internal task template
+title: "[Task] "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: Describe the task clearly.
+    
+  - type: dropdown
+    id: task_type
+    attributes:
+      labels: Task type
+      description: Select the type of task.
+      options:
+        - New feature
+        - Fix
+        - CI/CD
+        - Documentation
+
+  - type: markdown
+    attributes:
+      value: "---"
+
+  - type: textarea
+    id: task
+    attributes:
+      labels: Task description
+      description: write description about task.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "---"
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Related code (if applicable)
+      description: Paste any relevant code snippets.
+      render: python
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: "---"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context.
+    validations:
+      required: false
+
