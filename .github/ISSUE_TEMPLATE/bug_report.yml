@@ -24,7 +24,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: Describe the steps to reproduce the bug.
-      placeholder: "1. Run ...\n 2. Execute ...\n 3. Observe ..."
+      placeholder: "1. Run ...\n2. Execute ...\n3. Observe ..."
     validations:
       required: true
   
