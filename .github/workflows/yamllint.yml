@@ -1,0 +1,28 @@
+name: Yamllint
+
+run-name: Yamllint
+
+on:
+  push:
+    paths-ignore:
+      - "*.md"
+      - "*.py"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - "*.py"
+  workflow_dispatch:
+
+
+jobs:
+  Yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Running yamllint
+        run: yamllint .github/ISSUE_TEMPLATE
