@@ -9,7 +9,7 @@ body:
       label: Describe the issue
       description: A clear and concise description of the bug.
     validations:
-      required: true 
+      required: true
 
   - type: markdown
     attributes:
@@ -27,7 +27,7 @@ body:
       placeholder: "1. Run ...\n2. Execute ...\n3. Observe ..."
     validations:
       required: true
-  
+
   - type: textarea
     id: code
     attributes:
@@ -36,7 +36,7 @@ body:
       render: python
     validations:
       required: false
-  
+
   - type: textarea
     id: log
     attributes:

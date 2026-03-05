@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: Describe the task clearly.
-    
+
   - type: dropdown
     id: task_type
     attributes:
@@ -54,4 +54,3 @@ body:
       description: Any other context.
     validations:
       required: false
-
