@@ -1,0 +1,6 @@
+{
+    "name": "Sqeleton Environment",
+    "build": {
+        "dockerfile": "Dockerfile"
+    }
+}
