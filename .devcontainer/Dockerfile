@@ -1,12 +1,9 @@
-FROM ubuntu:22.04
+FROM python:3.11
 
 WORKDIR /workspace/sqeleton
 
-RUN apt-get update && apt-get install -y \
-    apt-get install python3 \
-    apt-get install python3-pip \
-    && apt-get clean
+COPY requirements.txt .
 
-RUN pip install numpy
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY .. .
+COPY . .
