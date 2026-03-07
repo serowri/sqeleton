@@ -11,12 +11,18 @@ class QuantumState:
         self.num = num
         self.state = (np.zeros((2**num, 1), dtype=complex))
         self.state[0][0] = 1
+        self.digit = "0" + str(num) + "b"
 
     def get_state_vector(self):
-        digit = "0" + str(self.num) + "b"
         for i, vector in enumerate(self.state):
-            print("|" + format(i, digit) +">:", end=" ")
+            print("|" + format(i, self.digit) +">:", end=" ")
             print(vector)
+    
+    def get_probability_vector(self):
+        for i, vector in enumerate(self.state):
+            print("|" + format(i, self.digit) + ">:", end=" ")
+            print(vector.real**2+vector.imag**2)
+
 
 
 class QuantumCircuit:
