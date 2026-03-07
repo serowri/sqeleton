@@ -16,6 +16,15 @@ n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero 
 |11>: [0.70710678+0.j] 
 ```
 
+`get_probability_vector()` method shows n-qubits probability vector.
+
+```bash
+|00>: [0.5]
+|01>: [0.]
+|10>: [0.]
+|11>: [0.5]
+```
+
 ## Class: QuantumCircuit
 Created matrix($2^n*2^n$) directly every gate when applied `update_quantum_state()` method.  
 Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
