@@ -75,11 +75,11 @@ class QuantumCircuit:
         self.gateArray.append(("t",num))
         return None
 
-    def add_CNOT_gate(self, a: int, b: int):
-        if a<0 or self.num-1 < a or b<0 or self.num-1 < b:
+    def add_CNOT_gate(self, control: int, target: int):
+        if control<0 or self.num-1 < control or target<0 or self.num-1 < target:
             print("not applied CNOT_gate(index error).")
             return None
-        self.gateArray.append(("cnot",a,b))
+        self.gateArray.append(("cnot",control,target))
         return None
     
     def update_quantum_state(self, state: QuantumState):
