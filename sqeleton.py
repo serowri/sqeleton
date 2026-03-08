@@ -13,15 +13,17 @@ class QuantumState:
         self.state[0][0] = 1
         self.digit = "0" + str(num) + "b"
 
-    def get_state_vector(self):
+    def get_state_vector(self) -> None:
         for i, vector in enumerate(self.state):
             print("|" + format(i, self.digit) +">:", end=" ")
             print(vector)
+        return None
     
-    def get_probability_vector(self):
+    def get_probability_vector(self) -> None:
         for i, vector in enumerate(self.state):
             print("|" + format(i, self.digit) + ">:", end=" ")
             print(vector.real**2+vector.imag**2)
+        return None
 
 
 
@@ -44,45 +46,45 @@ class QuantumCircuit:
         self.num = num
         self.gateArray = deque()
 
-    def add_X_gate(self, num: int):
+    def add_X_gate(self, num: int) -> None:
         if num < 0 or self.num-1 < num:
             print("not applied X_gate(index error).")
             return None
         self.gateArray.append(("x",num))
         return None
-    def add_Y_gate(self, num: int):
+    def add_Y_gate(self, num: int) -> None:
         if num < 0 or self.num-1 < num:
             print("not applied Y_gate(index error).")
             return None
         self.gateArray.append(("y",num))
         return None
-    def add_Z_gate(self, num: int):
+    def add_Z_gate(self, num: int) -> None:
         if num < 0 or self.num-1 < num:
             print("not applied Z_gate(index error).")
             return None
         self.gateArray.append(("z",num))
         return None
-    def add_H_gate(self, num: int):
+    def add_H_gate(self, num: int) -> None:
         if num < 0 or self.num-1 < num:
             print("not applied H_gate(index error).")
             return None
         self.gateArray.append(("h",num))
         return None
-    def add_T_gate(self, num: int):
+    def add_T_gate(self, num: int) -> None:
         if num < 0 or self.num-1 < num:
             print("not applied T_gate(index error).")
             return None
         self.gateArray.append(("t",num))
         return None
 
-    def add_CNOT_gate(self, control: int, target: int):
+    def add_CNOT_gate(self, control: int, target: int) -> None:
         if control<0 or self.num-1 < control or target<0 or self.num-1 < target:
             print("not applied CNOT_gate(index error).")
             return None
         self.gateArray.append(("cnot",control,target))
         return None
     
-    def update_quantum_state(self, state: QuantumState):
+    def update_quantum_state(self, state: QuantumState) -> None:
         if(state.num != self.num):
             print("dimensions error!")
             self.gateArray.clear()
