@@ -23,6 +23,20 @@ def test_Y_gate():
         [0], [1j]
     ], dtype=complex)
 
+    assert np.allclose(state.state, expected)
+
+def test_Z_gate():
+    state = QuantumState(1)
+    circuit = QuantumCircuit(1)
+    circuit.add_Z_gate(0)
+    circuit.update_quantum_state(state) 
+
+    expected = np.array([
+        [1], [0]
+    ], dtype=complex)
+
+    assert np.allclose(state.state, expected)
+
 def test_H_gate():
     state = QuantumState(1)
     circuit = QuantumCircuit(1)
