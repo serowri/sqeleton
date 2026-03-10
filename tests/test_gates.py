@@ -48,3 +48,15 @@ def test_H_gate():
     ], dtype=complex)
 
     assert np.allclose(state.state, expected)
+
+def test_T_gate():
+    state = QuantumState(1)
+    circuit = QuantumCircuit(1)
+    circuit.add_T_gate(0)
+    circuit.update_quantum_state(state)
+
+    expected = np.array([
+        [1], [0]
+    ], dtype=complex)
+
+    assert np.allclose(state.state, expected)
