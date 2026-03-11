@@ -7,10 +7,6 @@ on:
     paths-ignore:
       - "*.md"
       - "*.py"
-  pull_request:
-    paths-ignore:
-      - "*.md"
-      - "*.py"
   workflow_dispatch:
 
 
