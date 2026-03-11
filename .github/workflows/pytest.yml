@@ -4,6 +4,8 @@ run-name: Pytest
 
 on:
   push:
+    paths:
+      - "src/sqeleton.py"
   workflow_dispatch:
 
 jobs:
