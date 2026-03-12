@@ -4,11 +4,10 @@ run-name: Yamllint
 
 on:
   push:
-    paths-ignore:
-      - "*.md"
-      - "*.py"
+    paths:
+      - ".github/ISSUE_TEMPLATE/*.yml"
+      - ".github/workflows/*.yml"
   workflow_dispatch:
-
 
 jobs:
   Yamllint:
@@ -18,7 +17,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install yamllint
-        run: pip install yamllint
+        run: sudo apt-get update && sudo apt-get install -y yamllint
 
       - name: Running yamllint
-        run: yamllint .github/ISSUE_TEMPLATE
+        run: |
+          yamllint .github/ISSUE_TEMPLATE
+          yamllint .github/workflows
