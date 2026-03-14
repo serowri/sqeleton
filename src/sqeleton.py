@@ -1,5 +1,5 @@
 import numpy as np
-from collections import deque
+from collections import deque, defaultdict
 
 class QuantumState:
     def __new__(cls, num: int):
@@ -25,6 +25,19 @@ class QuantumState:
             print(vector.real**2+vector.imag**2)
         return None
 
+    def sampling(self, count: int) -> None:
+        probability_list = [vector[0].real**2+vector[0].imag**2 for vector in self.state] #note: self.state is 2-dimensional array
+        bitarray = [format(i, self.digit) for i in range(2**self.num)]
+        result = np.random.choice(bitarray, size=count, replace=True, p=probability_list)
+        sampling_result = defaultdict(list)
+        for i in range(2**self.num):
+            sampling_result[format(i, self.digit)] = 0
+        for i in range(count):
+            sampling_result[result[i]] += 1
+        for key in bitarray:
+            print("|" + key + ">:", end=" ")
+            print(sampling_result[key])
+        return None
 
 
 class QuantumCircuit:
