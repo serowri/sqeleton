@@ -23,6 +23,7 @@ jobs:
           yamllint -d "{extends: default, rules: {line-length: {max: 200, level: warning}, document-start: disable, truthy: disable, comments-indentation: disable}}" .github
 
       - name: Install actionlint
-        run: |
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-          ./actionlint -color
+        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+      
+      - name: Run actionlint
+        run: ./actionlint -color
