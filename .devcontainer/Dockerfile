@@ -2,8 +2,10 @@ FROM python:3.11
 
 WORKDIR /workspace/sqeleton
 
-COPY requirements.txt .
+RUN pip install uv
 
-RUN pip install -r requirements.txt
+COPY pyproject.toml uv.lock ./
+
+RUN uv sync --no-dev
 
 COPY . .
