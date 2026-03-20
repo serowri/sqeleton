@@ -4,6 +4,7 @@
         "dockerfile": "Dockerfile",
         "context": ".."
     },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/sqeleton,type=bind",
     "workspaceFolder": "/workspace/sqeleton",
     "customizations": {
         "vscode": {
