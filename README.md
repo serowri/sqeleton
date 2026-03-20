@@ -58,7 +58,7 @@ usage.py is a simple example file for how to use this simulator quickly.
 ```bash
 git clone https://github.com/serowri/sqeleton.git
 cd sqeleton
-python usage.py
+uv run python usage.py
 ```
 
 # Sample Python Code
