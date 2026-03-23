@@ -1,5 +1,5 @@
 # Sqeleton
-Sqeleton is a quantum circuit simulator.    
+Sqeleton is a quantum circuit simulator and not for practical use simulator.    
 
 Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,H,T) and 2q-gate(CNOT)).
 
@@ -41,13 +41,18 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 Deque has applied gates order and is used when call `update_quantum_state()` method.
 
 # Feature
-Easy to understand(100LOC python) and support to understand how recently quantum circuit simulators are built by reading sqeleton code.   
+Sqeleton is not suited for practical use but for education and beginners.
+- Directly generate matrix($2^n*2^n$)
+- Consume your device memory massively
 
-Sqeleton has simulator core logic.
+Most of practical use quantum circuit simulators don't directly create large matrix.  
+Easy to understand(100LOC python) and support to understand how recently quantum circuit simulators are built by reading sqeleton code.  
+Sqeleton has simulator core logic but not opimized.
 
 
 # Requirement
 * numpy
+* uv
 
 # Usage
 Clone sqeleton.py from this repository and import it.  
@@ -61,22 +66,26 @@ cd sqeleton
 uv run python usage.py
 ```
 
+or simply copy row code of src/sqeleton.py and import it. (only need numpy)
+
 # Sample Python Code
 ```python
-from sqeleton import *
+from src.sqeleton import *
 
-num = 2
-state = QuantumState(num)
-circuit = QuantumCircuit(num)
+n_qubits = 2
+state = QuantumState(n_qubits)
+circuit = QuantumCircuit(n_qubits)
 circuit.add_H_gate(0)
 circuit.add_CNOT_gate(0,1)
 circuit.update_quantum_state(state)
 state.get_state_vector()
+state.get_probability_vector()
+state.sampling(1000)
 ```
 
 # Note
 Right end qubit is LSB: $|q_n,...,q_1,q_0>$  
-Sqeleton is so short, slow and simple ~~that lack precision(now especially calculation results)~~.   
+Sqeleton is so simple and slow. ~~that lack precision(now especially calculation results)~~   
 Now available `add_#_gate()` (#: choose from {X,Y,Z,H,T,CNOT}).  
 Limitation: `n-qubits < 20`.
 
