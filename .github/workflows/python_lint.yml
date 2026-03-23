@@ -4,9 +4,8 @@ run-name: Python lint
 
 on:
   push:
-    paths-ignore:
-      - "**/*.md"
-      - "**/*.yml"
+    paths:
+      - "**/*.py"
   workflow_dispatch:
 
 jobs:
