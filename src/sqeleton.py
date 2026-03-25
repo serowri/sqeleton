@@ -49,6 +49,7 @@ class QuantumCircuit:
     T_gate = np.array([[1,0],[0,np.exp(1j*np.pi/4)]])
     P0 = np.array([[1,0],[0,0]]) # P0 ->|0><0|
     P1 = np.array([[0,0],[0,1]]) # P1 -> |1><1|
+    _gateBase_1q = {"x", "y", "z", "h", "t"}
 
     def __new__(cls, num: int):
         if num > 19:
@@ -104,46 +105,60 @@ class QuantumCircuit:
             return None
         for key, value1, *rest in self.gateArray:
             value2 = rest[0] if rest else None
-            if(key == "x"):
-                matrix = self.X_gate
-            elif(key == "y"):
-                matrix = self.Y_gate
-            elif(key == "z"):
-                matrix = self.Z_gate
-            elif(key == "h"):
-                matrix = self.H_gate
-            elif(key == "t"):
-                matrix = self.T_gate
-            elif(key == "cnot"):
-                alpha = self.P0
-                beta = self.P1
-                for i in range(value1):
-                    alpha = np.kron(alpha, self.I_gate)
-                for i in range(self.num - 1 - value1):
-                    alpha = np.kron(self.I_gate ,alpha)
-                
-                for i in range(value1):
-                    if(i == value2):
-                        beta = np.kron(beta, self.X_gate)
-                        continue
-                    beta = np.kron(beta, self.I_gate)
-                for i in range(self.num - 1 - value1):
-                    if(i+value1+1 == value2):
-                        beta = np.kron(self.X_gate, beta)
-                        continue
-                    beta = np.kron(self.I_gate, beta)
-                state.state = np.matmul(alpha+beta, state.state)
+            if key in self._gateBase_1q:
+                matrix = self._gate_validator(key)
+                self._apply_1q_gate(state, matrix, value1)
+                continue
+            if key == "cnot":
+                self._apply_cnot_gate(state, value1, value2)
                 continue
             else:
                 return None
-            
-            for i in range(value1) :
-                matrix = np.kron(matrix, self.I_gate)   
-            for i in range(self.num - 1 - value1):
-                matrix = np.kron(self.I_gate, matrix)
-            state.state = np.matmul(matrix, state.state)
 
         self.gateArray.clear()
         state.state[np.abs(state.state) < 1e-12] = 0 #optional
+        return None
+    
+    def _gate_validator(self, key):
+        if(key == "x"):
+            matrix = self.X_gate
+        elif(key == "y"):
+            matrix = self.Y_gate
+        elif(key == "z"):
+            matrix = self.Z_gate
+        elif(key == "h"):
+            matrix = self.H_gate
+        elif(key == "t"):
+            matrix = self.T_gate
+        return matrix
+    
+    def _apply_1q_gate(self, state: QuantumState, matrix, value1: int) -> None:
+        for i in range(value1) :
+            matrix = np.kron(matrix, self.I_gate)
+        for i in range(self.num - 1 - value1):
+            matrix = np.kron(self.I_gate, matrix)
+        state.state = np.matmul(matrix, state.state)
+        return None
+
+    def _apply_cnot_gate(self, state: QuantumState, value1: int, value2: int) -> None:
+        alpha = self.P0
+        beta = self.P1
+        for i in range(value1):
+            alpha = np.kron(alpha, self.I_gate)
+        for i in range(self.num - 1 - value1):
+            alpha = np.kron(self.I_gate ,alpha)
+                
+        for i in range(value1):
+            if(i == value2):
+                beta = np.kron(beta, self.X_gate)
+                continue
+            beta = np.kron(beta, self.I_gate)
+        for i in range(self.num - 1 - value1):
+            if(i+value1+1 == value2):
+                beta = np.kron(self.X_gate, beta)
+                continue
+            beta = np.kron(self.I_gate, beta)
+        state.state = np.matmul(alpha+beta, state.state)
+
         return None
     
