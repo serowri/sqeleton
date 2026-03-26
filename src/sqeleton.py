@@ -50,6 +50,7 @@ class QuantumCircuit:
     P0 = np.array([[1,0],[0,0]]) # P0 ->|0><0|
     P1 = np.array([[0,0],[0,1]]) # P1 -> |1><1|
     _gateBase_1q = {"x", "y", "z", "h", "t"}
+    _gateBase_2q = {"cnot"}
 
     def __new__(cls, num: int):
         if num > 19:
@@ -98,6 +99,17 @@ class QuantumCircuit:
         self.gateArray.append(("cnot",control,target))
         return None
     
+    def get_circuit_info(self) -> None:
+        if len(self.gateArray) == 0:
+            print("No gates.")
+            return None
+        for gateInfo in self.gateArray:
+            if gateInfo[0] in self._gateBase_1q:
+                print("gateType:", gateInfo[0], ", target:", gateInfo[1])
+            if gateInfo[0] in self._gateBase_2q:
+                print("gateType:", gateInfo[0], ", control:", gateInfo[1], ", target:", gateInfo[2])
+        return None
+    
     def update_quantum_state(self, state: QuantumState) -> None:
         if(state.num != self.num):
             print("dimensions error!")
@@ -115,7 +127,6 @@ class QuantumCircuit:
             else:
                 return None
 
-        self.gateArray.clear()
         state.state[np.abs(state.state) < 1e-12] = 0 #optional
         return None
     
