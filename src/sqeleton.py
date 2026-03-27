@@ -111,7 +111,7 @@ class QuantumCircuit:
         return None
 
     def get_depth(self) -> None:
-        backet = np.zeros(2**self.num, dtype=int)
+        backet = np.zeros(self.num, dtype=int)
         for key, value1, *rest in self.gateArray:
             value2 = rest[0] if rest else None
             if key in self._gateBase_1q:
@@ -120,6 +120,9 @@ class QuantumCircuit:
             if key in self._gateBase_2q:
                 backet[value1] = max(backet[value1], backet[value2])+1
                 backet[value2] = backet[value1]
+                left = min(value1, value2)
+                right = max(value1, value2)
+                backet[left:right] = backet[value1]
                 
             backet[backet < (backet[value1]-1)] = backet[value1]-1
         print("circuit depth :", np.max(backet))
