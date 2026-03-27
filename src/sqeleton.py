@@ -99,7 +99,7 @@ class QuantumCircuit:
         self.gateArray.append(("cnot",control,target))
         return None
     
-    def get_circuit_info(self) -> None:
+    def get_info(self) -> None:
         if len(self.gateArray) == 0:
             print("No gates.")
             return None
@@ -109,6 +109,22 @@ class QuantumCircuit:
             if gateInfo[0] in self._gateBase_2q:
                 print("gateType:", gateInfo[0], ", control:", gateInfo[1], ", target:", gateInfo[2])
         return None
+
+    def get_depth(self) -> None:
+        backet = np.zeros(2**self.num, dtype=int)
+        for key, value1, *rest in self.gateArray:
+            value2 = rest[0] if rest else None
+            if key in self._gateBase_1q:
+                backet[value1] += 1
+                
+            if key in self._gateBase_2q:
+                backet[value1] = max(backet[value1], backet[value2])+1
+                backet[value2] = backet[value1]
+                
+            backet[backet < (backet[value1]-1)] = backet[value1]-1
+        print("circuit depth :", np.max(backet))
+        return None
+
     
     def update_quantum_state(self, state: QuantumState) -> None:
         if(state.num != self.num):
