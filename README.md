@@ -7,38 +7,20 @@ Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircui
 ## Class: QuantumState
 n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero state.  
 
-`get_state_vector()` method shows n-qubits state vector.
-
-```bash
-|00>: [0.70710678+0.j]
-|01>: [0.        +0.j] 
-|10>: [0.        +0.j] 
-|11>: [0.70710678+0.j] 
-```
-
-`get_probability_vector()` method shows n-qubits probability vector.
-
-```bash
-|00>: [0.5]
-|01>: [0.]
-|10>: [0.]
-|11>: [0.5]
-```
-
-`sampling()` method sampling in the computational basis.
-
-```bash
-|00>: 499
-|01>: 0
-|10>: 0
-|11>: 501
-```
+**Public Method**
+- get_state_vector
+- get_probability_vector
+- sampling
 
 ## Class: QuantumCircuit
-Created matrix($2^n*2^n$) directly every gate when applied `update_quantum_state()` method.  
+Create matrix($2^n*2^n$) directly for each gate.  
 Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
 
-Deque has applied gates order and is used when call `update_quantum_state()` method.
+**Public Method**
+- add_#_gate (#: X, Y, Z, H, T and CNOT)
+- update_quantum_state
+- get_info
+- get_depth
 
 # Feature
 Sqeleton is not suited for practical use but for education and beginners.
@@ -46,8 +28,8 @@ Sqeleton is not suited for practical use but for education and beginners.
 - Consume your device memory massively
 
 Most of practical use quantum circuit simulators don't directly create large matrix.  
-Easy to understand(100LOC python) and support to understand how recently quantum circuit simulators are built by reading sqeleton code.  
-Sqeleton has simulator core logic but not opimized.
+Support to understand how recently quantum circuit simulators are built by reading sqeleton code.  
+Sqeleton has simulator core logic but not opimized for practical use.
 
 
 # Requirement
@@ -85,8 +67,7 @@ state.sampling(1000)
 
 # Note
 Right end qubit is LSB: $|q_n,...,q_1,q_0>$  
-Sqeleton is so simple and slow. ~~that lack precision(now especially calculation results)~~   
-Now available `add_#_gate()` (#: choose from {X,Y,Z,H,T,CNOT}).  
+Sqeleton is so simple and slow. ~~that lack precision(now especially calculation results)~~    
 Limitation: `n-qubits < 20`.
 
 
