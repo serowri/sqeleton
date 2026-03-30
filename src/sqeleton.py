@@ -50,6 +50,7 @@ class QuantumCircuit:
     P0 = np.array([[1,0],[0,0]]) # P0 ->|0><0|
     P1 = np.array([[0,0],[0,1]]) # P1 -> |1><1|
     _gateBase_1q = {"x", "y", "z", "h", "t"}
+    _gateRotate_1q = {"rx", "ry", "rz"}
     _gateBase_2q = {"cnot"}
 
     def __new__(cls, num: int):
@@ -91,6 +92,25 @@ class QuantumCircuit:
             return None
         self.gateArray.append(("t",num))
         return None
+    
+    def add_RX_gate(self, num: int, theta: float) -> None:
+        if num < 0 or self.num-1 < num:
+            print("not applied RX_gate(index error).")
+            return None
+        self.gateArray.append(("rx",num,theta))
+        return None
+    def add_RY_gate(self, num: int, theta: float) -> None:
+        if num < 0 or self.num-1 < num:
+            print("not applied RY_gate(index error).")
+            return None
+        self.gateArray.append(("ry",num,theta))
+        return None
+    def add_RZ_gate(self, num: int, theta: float) -> None:
+        if num < 0 or self.num-1 < num:
+            print("not applied RZ_gate(index error).")
+            return None
+        self.gateArray.append(("rz",num,theta))
+        return None
 
     def add_CNOT_gate(self, control: int, target: int) -> None:
         if control<0 or self.num-1 < control or target<0 or self.num-1 < target or control == target:
@@ -106,6 +126,8 @@ class QuantumCircuit:
         for gateInfo in self.gateArray:
             if gateInfo[0] in self._gateBase_1q:
                 print("gateType:", gateInfo[0], ", target:", gateInfo[1])
+            if gateInfo[0] in self._gateRotate_1q:
+                print("gateType:", gateInfo[0], ", target:", gateInfo[1], ", theta:", gateInfo[2])
             if gateInfo[0] in self._gateBase_2q:
                 print("gateType:", gateInfo[0], ", control:", gateInfo[1], ", target:", gateInfo[2])
         return None
@@ -114,9 +136,9 @@ class QuantumCircuit:
         backet = np.zeros(self.num, dtype=int)
         for key, value1, *rest in self.gateArray:
             value2 = rest[0] if rest else None
-            if key in self._gateBase_1q:
+            if key in (self._gateBase_1q | self._gateRotate_1q):
                 backet[value1] += 1
-                
+
             if key in self._gateBase_2q:
                 backet[value1] = max(backet[value1], backet[value2])+1
                 backet[value2] = backet[value1]
@@ -137,8 +159,10 @@ class QuantumCircuit:
         for key, value1, *rest in self.gateArray:
             value2 = rest[0] if rest else None
             if key in self._gateBase_1q:
-                matrix = self._gate_validator(key)
-                self._apply_1q_gate(state, matrix, value1)
+                self._apply_1q_gate(state, self._gate_validator(key), value1)
+                continue
+            if key in self._gateRotate_1q:
+                self._apply_1q_gate(state, self._rotate_gate_generator(key, value2), value1)
                 continue
             if key == "cnot":
                 self._apply_cnot_gate(state, value1, value2)
@@ -161,6 +185,14 @@ class QuantumCircuit:
         elif(key == "t"):
             matrix = self.T_gate
         return matrix
+
+    def _rotate_gate_generator(self, key: str, theta):
+        if key == "rx":
+            return np.array([[np.cos(theta/2), -1j*np.sin(theta/2)], [-1j*np.sin(theta/2), np.cos(theta/2)]])
+        if key == "ry":
+            return np.array([np.cos(theta/2), -1j*np.sin(theta/2)], [np.sin(theta/2), np.cos(theta/2)])
+        if key == "rz":
+            return np.array([np.exp(-1j*theta/2), 0], [0, np.exp(1j*theta/2)])
     
     def _apply_1q_gate(self, state: QuantumState, matrix, value1: int) -> None:
         for i in range(value1) :
