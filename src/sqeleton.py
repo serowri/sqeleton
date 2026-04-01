@@ -2,30 +2,67 @@ import numpy as np
 from collections import deque, defaultdict
 
 class QuantumState:
+    """manage state vector"""
     def __new__(cls, num: int):
+        """validate number of qubit"""
         if num > 19:
             raise ValueError("Memory Attention!(Must n_qubits < 20)")
         return super().__new__(cls)
 
     def __init__(self, num: int):
+        """inits a `QuantumState`.
+        Args:
+            num (int): number of qubit
+        Examples:
+            >>> state = QuantumState(2)
+        """
         self.num = num
         self.state = (np.zeros((2**num, 1), dtype=complex))
         self.state[0][0] = 1
         self.digit = "0" + str(num) + "b"
 
     def get_state_vector(self) -> None:
+        """show state vector
+        Examples:
+            >>> state = QuantumState(2)
+	        >>> state.get_state_vector()
+            |00>: [1.+0.j]
+            |01>: [0.+0.j]
+            |10>: [0.+0.j]
+            |11>: [0.+0.j]
+        """
         for i, vector in enumerate(self.state):
             print("|" + format(i, self.digit) +">:", end=" ")
             print(vector)
         return None
     
     def get_probability_vector(self) -> None:
+        """show probability vector
+        Examples:
+            >>> state = QuantumState(2)
+            >>> state.get_probability_vector()
+            |00>: [1.]
+            |01>: [0.]
+            |10>: [0.]
+            |11>: [0.]
+        """
         for i, vector in enumerate(self.state):
             print("|" + format(i, self.digit) + ">:", end=" ")
             print(vector.real**2+vector.imag**2)
         return None
 
     def sampling(self, count: int) -> None:
+        """sampling in the computational basis
+        Args:
+            count (int): sampling number
+        Examples:
+            >>> state = QuantumState(2)
+            >>> state.sampling(1000)
+            |00>: 1000
+            |01>: 0
+            |10>: 0
+            |11>: 0
+        """
         probability_list = [vector[0].real**2+vector[0].imag**2 for vector in self.state] #note: self.state is 2-dimensional array
         bitarray = [format(i, self.digit) for i in range(2**self.num)]
         result = np.random.choice(bitarray, size=count, replace=True, p=probability_list)
@@ -41,6 +78,7 @@ class QuantumState:
 
 
 class QuantumCircuit:
+    """have gate and methods"""
     I_gate = np.array([[1,0],[0,1]])
     X_gate = np.array([[0,1],[1,0]])
     Y_gate = np.array([[0,-1j],[1j,0]])
@@ -54,39 +92,79 @@ class QuantumCircuit:
     _gateBase_2q = {"cnot"}
 
     def __new__(cls, num: int):
+        """validate number of qubit"""
         if num > 19:
             raise ValueError("Memory Attention!(Must n_qubits < 20)")
         return super().__new__(cls)
 
     def __init__(self, num: int):
+        """inits a `QuantumCircuit`.
+        Args:
+            num (int): number of qubit
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+        """
         self.num = num
         self.gateArray = deque()
 
     def add_X_gate(self, num: int) -> None:
+        """add X gate in gateArray
+        Args:
+            num (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.add_X_gate(0)
+        """
         if num < 0 or self.num-1 < num:
             print("not applied X_gate(index error).")
             return None
         self.gateArray.append(("x",num))
         return None
     def add_Y_gate(self, num: int) -> None:
+        """add Y gate in gateArray
+        Args:
+            num (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied Y_gate(index error).")
             return None
         self.gateArray.append(("y",num))
         return None
     def add_Z_gate(self, num: int) -> None:
+        """add Z gate in gateArray
+        Args:
+            num (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied Z_gate(index error).")
             return None
         self.gateArray.append(("z",num))
         return None
     def add_H_gate(self, num: int) -> None:
+        """add H gate in gateArray
+        Args:
+            num (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied H_gate(index error).")
             return None
         self.gateArray.append(("h",num))
         return None
     def add_T_gate(self, num: int) -> None:
+        """add T gate in gateArray
+        Args:
+            num (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied T_gate(index error).")
             return None
@@ -94,18 +172,42 @@ class QuantumCircuit:
         return None
     
     def add_RX_gate(self, num: int, theta: float) -> None:
+        """add RX gate in gateArray
+        Args:
+            num (int): target qubit index
+            theta (float): rotate angle
+        Raises:
+            index error: target index is out of range
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.add_RX_gate(0, np.pi)
+        """
         if num < 0 or self.num-1 < num:
             print("not applied RX_gate(index error).")
             return None
         self.gateArray.append(("rx",num,theta))
         return None
     def add_RY_gate(self, num: int, theta: float) -> None:
+        """add RY gate in gateArray
+        Args:
+            num (int): target qubit index
+            theta (float): rotate angle
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied RY_gate(index error).")
             return None
         self.gateArray.append(("ry",num,theta))
         return None
     def add_RZ_gate(self, num: int, theta: float) -> None:
+        """add RZ gate in gateArray
+        Args:
+            num (int): target qubit index
+            theta (float): rotate angle
+        Raises:
+            index error: target index is out of range
+        """
         if num < 0 or self.num-1 < num:
             print("not applied RZ_gate(index error).")
             return None
@@ -113,6 +215,16 @@ class QuantumCircuit:
         return None
 
     def add_CNOT_gate(self, control: int, target: int) -> None:
+        """add CNOT gate in gateArray
+        Args:
+            control (int): control qubit index
+            target (int): target qubit index
+        Raises:
+            index error: target index is out of range
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.add_CNOT_gate(0, 1)
+        """
         if control<0 or self.num-1 < control or target<0 or self.num-1 < target or control == target:
             print("not applied CNOT_gate(index error).")
             return None
@@ -120,6 +232,18 @@ class QuantumCircuit:
         return None
     
     def get_info(self) -> None:
+        """show circuit information
+        property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is ratate gate)
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.add_X_gate(0)
+            >>> circuit.add_RX_gate(0, np.pi)
+            >>> circuit.add_CNOT_gate(0, 1)
+            >>> circuit.get_info()
+            gateType: x , target: 0
+            gateType: rx , target: 0 , theta: 3.141592653589793
+            gateType: cnot , control: 0 , target: 1
+        """
         if len(self.gateArray) == 0:
             print("No gates.")
             return None
@@ -133,6 +257,15 @@ class QuantumCircuit:
         return None
 
     def get_depth(self) -> None:
+        """show circuit depth
+        Examples:
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.add_X_gate(0)
+            >>> circuit.add_RX_gate(0, np.pi)
+            >>> circuit.add_CNOT_gate(0, 1)
+            >>> circuit.get_depth()
+            circuit depth : 3
+        """
         backet = np.zeros(self.num, dtype=int)
         for key, value1, *rest in self.gateArray:
             value2 = rest[0] if rest else None
@@ -152,6 +285,14 @@ class QuantumCircuit:
 
     
     def update_quantum_state(self, state: QuantumState) -> None:
+        """interface of calling internal apply methods
+        Args:
+            state (QuantumState): target state to apply circuit
+        Examples:
+            >>> state = QuantumState(2)
+            >>> circuit = QuantumCircuit(2)
+            >>> circuit.update_quantum_state(state)
+        """
         if(state.num != self.num):
             print("dimensions error!")
             self.gateArray.clear()
@@ -174,6 +315,12 @@ class QuantumCircuit:
         return None
     
     def _gate_validator(self, key):
+        """internal: gate validator
+        Args:
+            key (str): gate one of the _gateBase_1q set
+        Returns:
+            matrix (NDArray): row matrix (2*2)
+        """
         if(key == "x"):
             matrix = self.X_gate
         elif(key == "y"):
@@ -187,6 +334,13 @@ class QuantumCircuit:
         return matrix
 
     def _rotate_gate_generator(self, key: str, theta):
+        """internal: generate rotate gate
+        Args:
+            key (str): gate one of the _gateRotate_1q set
+            theta (float): rotation angle
+        Returns:
+            no name (NDArray): row matrix (2*2)
+        """
         if key == "rx":
             return np.array([[np.cos(theta/2), -1j*np.sin(theta/2)], [-1j*np.sin(theta/2), np.cos(theta/2)]])
         if key == "ry":
@@ -195,6 +349,12 @@ class QuantumCircuit:
             return np.array([np.exp(-1j*theta/2), 0], [0, np.exp(1j*theta/2)])
     
     def _apply_1q_gate(self, state: QuantumState, matrix, value1: int) -> None:
+        """internal: apply row matrix (1q) to state vector
+        Args:
+            state (QuantumState): state vector
+            matrix (NDArray): row matrix (2*2)
+            value1 (int): target qubit index
+        """
         for i in range(value1) :
             matrix = np.kron(matrix, self.I_gate)
         for i in range(self.num - 1 - value1):
@@ -203,6 +363,12 @@ class QuantumCircuit:
         return None
 
     def _apply_cnot_gate(self, state: QuantumState, value1: int, value2: int) -> None:
+        """internal: apply cnot-gate to state vector
+        Args:
+            state (QuantumState): state vector
+            value1 (int): control qubit index
+            value2 (int): target qubit index
+        """
         alpha = self.P0
         beta = self.P1
         for i in range(value1):
