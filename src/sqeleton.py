@@ -256,7 +256,7 @@ class QuantumCircuit:
                 print("gateType:", gateInfo[0], ", control:", gateInfo[1], ", target:", gateInfo[2])
         return None
 
-    def get_depth(self) -> None:
+    def get_depth(self) -> int:
         """show circuit depth
         Examples:
             >>> circuit = QuantumCircuit(2)
@@ -275,13 +275,8 @@ class QuantumCircuit:
             if key in self._gateBase_2q:
                 backet[value1] = max(backet[value1], backet[value2])+1
                 backet[value2] = backet[value1]
-                left = min(value1, value2)
-                right = max(value1, value2)
-                backet[left:right] = backet[value1]
-                
-            backet[backet < (backet[value1]-1)] = backet[value1]-1
-        print("circuit depth :", np.max(backet))
-        return None
+
+        return np.max(backet)
 
     
     def update_quantum_state(self, state: QuantumState) -> None:
