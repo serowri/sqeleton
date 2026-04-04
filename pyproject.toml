@@ -8,7 +8,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest"
+    "pytest",
+    "sphinx",
+    "sphinx_rtd_theme"
 ]
 
 [tool.pytest.ini_options]
