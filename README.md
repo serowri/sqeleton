@@ -1,26 +1,34 @@
 # Sqeleton
 Sqeleton is a quantum circuit simulator and not for practical use simulator.    
 
-Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,Rotation pauli,H,T) and 2q-gate(CNOT)).
+Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,Rotation pauli,H,T) and 2q-gate(CNOT)).  
+
+See [documentation](https://serowri.github.io/sqeleton/)
 
 # Architecture
 ## Class: QuantumState
 n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero state.  
 
-**Public Method**
+<details>
+<summary>Public Method</summary>
+
 - get_state_vector
 - get_probability_vector
 - sampling
+</details>  
 
 ## Class: QuantumCircuit
 Create matrix($2^n*2^n$) directly for each gate.  
 Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
 
-**Public Method**
+<details>
+<summary>Public Method</summary>
+
 - add_#_gate (#: X, Y, Z, H, T , RX, RY, RZ and CNOT)
 - update_quantum_state
 - get_info
 - get_depth
+</details>  
 
 # Feature
 Sqeleton is not suited for practical use but for education and beginners.
@@ -65,10 +73,10 @@ state.get_probability_vector()
 state.sampling(1000)
 ```
 
-# Note
-Right end qubit is LSB: $|q_n,...,q_1,q_0>$  
-Sqeleton is so simple and slow. ~~that lack precision(now especially calculation results)~~    
-Limitation: `n-qubits < 20`.
+> [!NOTE]  
+> Right end qubit is LSB: $|q_n,...,q_1,q_0>$  
+> Sqeleton is not for practical use.     
+> Limitation: `n-qubits < 20`.  
 
 
 # Looking forward to your comments!
