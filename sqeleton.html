@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sqeleton module &mdash; sqeleton 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            sqeleton
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sqeleton module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sqeleton.QuantumCircuit"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.H_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.H_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.I_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.I_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.P0"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.P0</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.P1"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.P1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.T_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.T_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.X_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.X_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.Y_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.Y_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.Z_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.Z_gate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_CNOT_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_CNOT_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_H_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_H_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_RX_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_RX_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_RY_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_RY_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_RZ_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_RZ_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_T_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_T_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_X_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_X_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_Y_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_Y_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.add_Z_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.add_Z_gate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.get_depth"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.get_depth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.get_info"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.get_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.update_quantum_state"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.update_quantum_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sqeleton.QuantumState"><code class="docutils literal notranslate"><span class="pre">QuantumState</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumState.get_probability_vector"><code class="docutils literal notranslate"><span class="pre">QuantumState.get_probability_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumState.get_state_vector"><code class="docutils literal notranslate"><span class="pre">QuantumState.get_state_vector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumState.sampling"><code class="docutils literal notranslate"><span class="pre">QuantumState.sampling()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sqeleton</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">sqeleton module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sqeleton.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sqeleton">
+<span id="sqeleton-module"></span><h1>sqeleton module<a class="headerlink" href="#module-sqeleton" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sqeleton.</span></span><span class="sig-name descname"><span class="pre">QuantumCircuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.QuantumCircuit" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>have gate and methods</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.H_gate">
+<span class="sig-name descname"><span class="pre">H_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">0.70710678,</span>&#160; <span class="pre">0.70710678],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">0.70710678,</span> <span class="pre">-0.70710678]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.H_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.I_gate">
+<span class="sig-name descname"><span class="pre">I_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[1,</span> <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">1]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.I_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.P0">
+<span class="sig-name descname"><span class="pre">P0</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[1,</span> <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">0]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.P0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.P1">
+<span class="sig-name descname"><span class="pre">P1</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0,</span> <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">1]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.P1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.T_gate">
+<span class="sig-name descname"><span class="pre">T_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[1.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">+0.j</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span> <span class="pre">0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">+0.j</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">+0.j</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">,</span> <span class="pre">0.70710678+0.70710678j]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.T_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.X_gate">
+<span class="sig-name descname"><span class="pre">X_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0,</span> <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">0]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.X_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.Y_gate">
+<span class="sig-name descname"><span class="pre">Y_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">0.+0.j,</span> <span class="pre">-0.-1.j],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">0.+1.j,</span>&#160; <span class="pre">0.+0.j]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.Y_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.Z_gate">
+<span class="sig-name descname"><span class="pre">Z_gate</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">1,</span>&#160; <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">0,</span> <span class="pre">-1]])</span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.Z_gate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_CNOT_gate">
+<span class="sig-name descname"><span class="pre">add_CNOT_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_CNOT_gate" title="Link to this definition"></a></dt>
+<dd><p>add CNOT gate in gateArray
+:param control: control qubit index
+:type control: int
+:param target: target qubit index
+:type target: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_CNOT_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_H_gate">
+<span class="sig-name descname"><span class="pre">add_H_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_H_gate" title="Link to this definition"></a></dt>
+<dd><p>add H gate in gateArray
+:param num: target qubit index
+:type num: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RX_gate">
+<span class="sig-name descname"><span class="pre">add_RX_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RX_gate" title="Link to this definition"></a></dt>
+<dd><p>add RX gate in gateArray
+:param num: target qubit index
+:type num: int
+:param theta: rotate angle
+:type theta: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_RX_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RY_gate">
+<span class="sig-name descname"><span class="pre">add_RY_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RY_gate" title="Link to this definition"></a></dt>
+<dd><p>add RY gate in gateArray
+:param num: target qubit index
+:type num: int
+:param theta: rotate angle
+:type theta: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RZ_gate">
+<span class="sig-name descname"><span class="pre">add_RZ_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RZ_gate" title="Link to this definition"></a></dt>
+<dd><p>add RZ gate in gateArray
+:param num: target qubit index
+:type num: int
+:param theta: rotate angle
+:type theta: float</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_T_gate">
+<span class="sig-name descname"><span class="pre">add_T_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_T_gate" title="Link to this definition"></a></dt>
+<dd><p>add T gate in gateArray
+:param num: target qubit index
+:type num: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_X_gate">
+<span class="sig-name descname"><span class="pre">add_X_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_X_gate" title="Link to this definition"></a></dt>
+<dd><p>add X gate in gateArray
+:param num: target qubit index
+:type num: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_X_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_Y_gate">
+<span class="sig-name descname"><span class="pre">add_Y_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_Y_gate" title="Link to this definition"></a></dt>
+<dd><p>add Y gate in gateArray
+:param num: target qubit index
+:type num: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_Z_gate">
+<span class="sig-name descname"><span class="pre">add_Z_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_Z_gate" title="Link to this definition"></a></dt>
+<dd><p>add Z gate in gateArray
+:param num: target qubit index
+:type num: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.get_depth">
+<span class="sig-name descname"><span class="pre">get_depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.get_depth" title="Link to this definition"></a></dt>
+<dd><p>show circuit depth
+.. rubric:: Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_X_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_RX_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_CNOT_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">get_depth</span><span class="p">()</span>
+<span class="go">circuit depth : 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.get_info">
+<span class="sig-name descname"><span class="pre">get_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.get_info" title="Link to this definition"></a></dt>
+<dd><p>show circuit information
+property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is ratate gate)
+.. rubric:: Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_X_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_RX_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_CNOT_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">get_info</span><span class="p">()</span>
+<span class="go">gateType: x , target: 0</span>
+<span class="go">gateType: rx , target: 0 , theta: 3.141592653589793</span>
+<span class="go">gateType: cnot , control: 0 , target: 1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumCircuit.update_quantum_state">
+<span class="sig-name descname"><span class="pre">update_quantum_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><span class="pre">QuantumState</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.update_quantum_state" title="Link to this definition"></a></dt>
+<dd><p>interface of calling internal apply methods
+:param state: target state to apply circuit
+:type state: QuantumState</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">update_quantum_state</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sqeleton.QuantumState">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sqeleton.</span></span><span class="sig-name descname"><span class="pre">QuantumState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.QuantumState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>manage state vector</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumState.get_probability_vector">
+<span class="sig-name descname"><span class="pre">get_probability_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.get_probability_vector" title="Link to this definition"></a></dt>
+<dd><p>show probability vector
+.. rubric:: Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">get_probability_vector</span><span class="p">()</span>
+<span class="go">|00&gt;: [1.]</span>
+<span class="go">|01&gt;: [0.]</span>
+<span class="go">|10&gt;: [0.]</span>
+<span class="go">|11&gt;: [0.]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumState.get_state_vector">
+<span class="sig-name descname"><span class="pre">get_state_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.get_state_vector" title="Link to this definition"></a></dt>
+<dd><p>show state vector
+.. rubric:: Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">    &gt;&gt;&gt; state.get_state_vector()</span>
+<span class="go">|00&gt;: [1.+0.j]</span>
+<span class="go">|01&gt;: [0.+0.j]</span>
+<span class="go">|10&gt;: [0.+0.j]</span>
+<span class="go">|11&gt;: [0.+0.j]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.QuantumState.sampling">
+<span class="sig-name descname"><span class="pre">sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.sampling" title="Link to this definition"></a></dt>
+<dd><p>sampling in the computational basis
+:param count: sampling number
+:type count: int</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="go">|00&gt;: 1000</span>
+<span class="go">|01&gt;: 0</span>
+<span class="go">|10&gt;: 0</span>
+<span class="go">|11&gt;: 0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, serowri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
