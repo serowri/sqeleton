@@ -339,9 +339,9 @@ class QuantumCircuit:
         if key == "rx":
             return np.array([[np.cos(theta/2), -1j*np.sin(theta/2)], [-1j*np.sin(theta/2), np.cos(theta/2)]])
         if key == "ry":
-            return np.array([np.cos(theta/2), -1j*np.sin(theta/2)], [np.sin(theta/2), np.cos(theta/2)])
+            return np.array([[np.cos(theta/2), -1j*np.sin(theta/2)], [np.sin(theta/2), np.cos(theta/2)]])
         if key == "rz":
-            return np.array([np.exp(-1j*theta/2), 0], [0, np.exp(1j*theta/2)])
+            return np.array([[np.exp(-1j*theta/2), 0], [0, np.exp(1j*theta/2)]])
     
     def _apply_1q_gate(self, state: QuantumState, matrix, value1: int) -> None:
         """internal: apply row matrix (1q) to state vector
