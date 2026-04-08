@@ -10,7 +10,7 @@ Thank you for your interest in contributing!
 
 ## Coding guidelines
 
-- Follow existing code style
+- Follow existing code style.
 - Keep fuction small and readable.
 - Write clear commit messages.
 
