@@ -1,5 +1,5 @@
 ~~~md
-> Please delete this instruction block before submitting the PR. (PR作成前にこのブロックは削除してください。) 
+> Please delete this instruction block before submitting the PR. 
 
 Please write in English or Japanese.
 PR title name example 
@@ -12,17 +12,11 @@ PR title name example
 Briefly describe the changes in this PR.
 
 
-## What was changed? (変更点)
+## What was changed?
 - 
 
-## Why was this change needed? (変更理由)
+## Why was this change needed?
 - 
 
-## How was it tested? (テスト方法)
+## How was it tested?
 - 
-
-## Checklist
-
-- [ ] Code builds successfully
-- [ ] Tests pass (if applicable)
-- [ ] Documentation updated (if needed)
