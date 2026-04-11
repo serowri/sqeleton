@@ -1,5 +1,6 @@
 import numpy as np
 from collections import deque, defaultdict
+import re
 
 class QuantumState:
     """manage state vector"""
@@ -385,3 +386,74 @@ class QuantumCircuit:
 
         return None
     
+
+class Operator:
+    #Pauli
+    I = np.array([[1, 0], [0 ,1]])
+    X = np.array([[0, 1], [1, 0]])
+    Y = np.array([[0, -1j], [1j, 0]])
+    Z = np.array([[1, 0], [0, -1]])
+    _pauliSet = {"X", "Y", "Z", "I"}
+
+    def __init__(self, num):
+        self.num = num
+        self.observableArray = deque()
+
+    def add_oparator(self, s, coef=1.0):
+        numSet = set()
+        tmp = {}
+        s = re.sub(r"\s+", "", s)
+        args = s.split(",")
+        for arg in args:
+            if arg[0] not in self._pauliSet:
+                print("no valid input")
+                return None
+            if arg[0] == "I":
+                index = self._i_index(arg)
+            if arg[0] == "X":
+                index = self._x_index(arg)
+            if arg[0] == "Y":
+                index = self._y_index(arg)
+            if arg[0] == "Z":
+                index = self._z_index(arg)
+            if index in numSet:
+                print("error: index duplicated.")
+                continue
+            numSet.add(index)
+            tmp[f"{index}"] = f"{arg[0]}"
+        
+        self.observableArray.append((coef, tmp))
+        return None
+
+    def _i_index(self, arg):
+        pattern = r"I\(\d\)"
+        results = re.findall(pattern, arg)
+        if len(results) == 1:
+            return re.findall(r"\d", results[0])[0]
+        print("error: must be format I(num)")
+        return -1
+
+    def _x_index(self, arg):
+        pattern = r"X\(\d\)"
+        results = re.findall(pattern, arg)
+        if len(results) == 1:
+            return re.findall(r"\d", results[0])[0]
+        print("error: must be format X(num)")
+        return -1
+
+    def _y_index(self, arg):
+        pattern = r"Y\(\d\)"
+        results = re.findall(pattern, arg)
+        if len(results) == 1:
+            return re.findall(r"\d", results[0])[0]
+        print("error: must be format Y(num)")
+        return -1
+
+    def _z_index(self, arg):
+        pattern = r"Z\(\d\)"
+        results = re.findall(pattern, arg)
+        if len(results) == 1:
+            return re.findall(r"\d", results[0])[0]
+        print("error: must be format Z(num)")
+        return -1
+
