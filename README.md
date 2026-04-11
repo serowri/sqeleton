@@ -31,6 +31,7 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 </details>  
 
 # Feature
+## Ignore computational efficiency  
 Sqeleton is not suited for practical use but for education and beginners.
 - Directly generate matrix($2^n*2^n$)
 - Consume your device memory massively
