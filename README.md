@@ -30,6 +30,16 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 - get_depth
 </details>  
 
+## Class: Operator
+Same as circuit class, create matrix (observable) directly.  
+
+<details>
+<summary>Public Method</summary>
+
+- add_operator
+- expectation_value
+</details>    
+
 # Feature
 ## Ignore computational efficiency  
 Sqeleton is not suited for practical use but for education and beginners.
@@ -43,7 +53,6 @@ Sqeleton has simulator core logic but not opimized for practical use.
 
 # Requirement
 * numpy
-* uv
 
 # Usage
 Clone sqeleton.py from this repository and import it.  
