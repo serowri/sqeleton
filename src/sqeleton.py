@@ -395,6 +395,13 @@ class Operator:
     _pauliSet = {"I", "X", "Y", "Z"}
 
     def __init__(self, num):
+        """inits operator class
+        Args:
+            num (int): number of qubit
+        Examples:
+            >>> n_qubits = 2
+            >>> observable = Operator(n_qubits)
+        """
         self.num = num
         self.observableArray = deque()
 
@@ -457,6 +464,12 @@ class Operator:
 
 
     def _i_index(self, arg) -> int:
+        """internal: index getter
+        Args:
+            arg (str): pauli operator and index
+        Returns:
+            index
+        """
         pattern = r"I\(\d\)"
         results = re.findall(pattern, arg)
         if len(results) == 1:
@@ -465,6 +478,12 @@ class Operator:
         return -1
 
     def _x_index(self, arg) -> int:
+        """internal: index getter
+        Args:
+            arg (str): pauli operator and index
+        Returns:
+            index
+        """
         pattern = r"X\(\d\)"
         results = re.findall(pattern, arg)
         if len(results) == 1:
@@ -473,6 +492,12 @@ class Operator:
         return -1
 
     def _y_index(self, arg) -> int:
+        """internal: index getter
+        Args:
+            arg (str): pauli operator and index
+        Returns:
+            index
+        """
         pattern = r"Y\(\d\)"
         results = re.findall(pattern, arg)
         if len(results) == 1:
@@ -481,6 +506,12 @@ class Operator:
         return -1
 
     def _z_index(self, arg) -> int:
+        """internal: index getter
+        Args:
+            arg (str): pauli operator and index
+        Returns:
+            index
+        """
         pattern = r"Z\(\d\)"
         results = re.findall(pattern, arg)
         if len(results) == 1:
@@ -489,6 +520,12 @@ class Operator:
         return -1
 
     def _matrixGenerator(self, observable):
+        """internal: Expand matrix based on given pauli operators
+        Args:
+            observable: operator array
+        Returns:
+            tmp: Expanded matrix
+        """
         tmp = observable[0]
         for i in range(self.num):
             operator = observable[1].get(str(f"{i}"), "I")
