@@ -10,7 +10,7 @@ See [documentation](https://serowri.github.io/sqeleton/)
 n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero state.  
 
 <details>
-<summary>Public Method</summary>
+<summary>Methods</summary>
 
 - get_state_vector
 - get_probability_vector
@@ -22,7 +22,7 @@ Create matrix($2^n*2^n$) directly for each gate.
 Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
 
 <details>
-<summary>Public Method</summary>
+<summary>Methods</summary>
 
 - add_#_gate (#: X, Y, Z, H, T , RX, RY, RZ and CNOT)
 - update_quantum_state
@@ -34,7 +34,7 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 Same as circuit class, create matrix (observable) directly.  
 
 <details>
-<summary>Public Method</summary>
+<summary>Methods</summary>
 
 - add_operator
 - expectation_value
