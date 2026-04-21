@@ -2,9 +2,6 @@ name: Document Deploy
 
 run-name: Document Deploy
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   workflow_dispatch:
 
