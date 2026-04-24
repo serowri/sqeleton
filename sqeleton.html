@@ -45,6 +45,15 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">sqeleton module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sqeleton.Operator"><code class="docutils literal notranslate"><span class="pre">Operator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.I"><code class="docutils literal notranslate"><span class="pre">Operator.I</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.X"><code class="docutils literal notranslate"><span class="pre">Operator.X</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.Y"><code class="docutils literal notranslate"><span class="pre">Operator.Y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.Z"><code class="docutils literal notranslate"><span class="pre">Operator.Z</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.add_oparator"><code class="docutils literal notranslate"><span class="pre">Operator.add_oparator()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqeleton.Operator.expectation_value"><code class="docutils literal notranslate"><span class="pre">Operator.expectation_value()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#sqeleton.QuantumCircuit"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.H_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.H_gate</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sqeleton.QuantumCircuit.I_gate"><code class="docutils literal notranslate"><span class="pre">QuantumCircuit.I_gate</span></code></a></li>
@@ -107,6 +116,63 @@
              
   <section id="module-sqeleton">
 <span id="sqeleton-module"></span><h1>sqeleton module<a class="headerlink" href="#module-sqeleton" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="sqeleton.Operator">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sqeleton.</span></span><span class="sig-name descname"><span class="pre">Operator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.Operator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.Operator.I">
+<span class="sig-name descname"><span class="pre">I</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[1,</span> <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0,</span> <span class="pre">1]])</span></span><a class="headerlink" href="#sqeleton.Operator.I" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.Operator.X">
+<span class="sig-name descname"><span class="pre">X</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0,</span> <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">0]])</span></span><a class="headerlink" href="#sqeleton.Operator.X" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.Operator.Y">
+<span class="sig-name descname"><span class="pre">Y</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">0.+0.j,</span> <span class="pre">-0.-1.j],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">0.+1.j,</span>&#160; <span class="pre">0.+0.j]])</span></span><a class="headerlink" href="#sqeleton.Operator.Y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sqeleton.Operator.Z">
+<span class="sig-name descname"><span class="pre">Z</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">1,</span>&#160; <span class="pre">0],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">0,</span> <span class="pre">-1]])</span></span><a class="headerlink" href="#sqeleton.Operator.Z" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.Operator.add_oparator">
+<span class="sig-name descname"><span class="pre">add_oparator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.Operator.add_oparator" title="Link to this definition"></a></dt>
+<dd><p>add operator
+:param s: operator string
+:type s: str
+:param coef: coefficiency default(1.0)
+:type coef: any</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span> <span class="o">=</span> <span class="n">Operator</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span><span class="o">.</span><span class="n">add_operator</span><span class="p">(</span><span class="s2">&quot;Z(0), Z(1)&quot;</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqeleton.Operator.expectation_value">
+<span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><span class="pre">QuantumState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.Operator.expectation_value" title="Link to this definition"></a></dt>
+<dd><p>calculate expectation value
+:param state: state vector
+:type state: QuantumState</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n_qubits</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span> <span class="o">=</span> <span class="n">Operator</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span><span class="o">.</span><span class="n">add_operator</span><span class="p">(</span><span class="s2">&quot;Z(0), Z(1)&quot;</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span><span class="o">.</span><span class="n">expectation_value</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sqeleton.</span></span><span class="sig-name descname"><span class="pre">QuantumCircuit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.QuantumCircuit" title="Link to this definition"></a></dt>
