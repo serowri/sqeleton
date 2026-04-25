@@ -143,11 +143,15 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.Operator.add_oparator">
 <span class="sig-name descname"><span class="pre">add_oparator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.Operator.add_oparator" title="Link to this definition"></a></dt>
-<dd><p>add operator
-:param s: operator string
-:type s: str
-:param coef: coefficiency default(1.0)
-:type coef: any</p>
+<dd><p>add operator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>str</em>) – operator string</p></li>
+<li><p><strong>coef</strong> (<em>any</em>) – coefficiency default(1.0)</p></li>
+</ul>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span> <span class="o">=</span> <span class="n">Operator</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">observable</span><span class="o">.</span><span class="n">add_operator</span><span class="p">(</span><span class="s2">&quot;Z(0), Z(1)&quot;</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
@@ -158,9 +162,12 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.Operator.expectation_value">
 <span class="sig-name descname"><span class="pre">expectation_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><span class="pre">QuantumState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sqeleton.Operator.expectation_value" title="Link to this definition"></a></dt>
-<dd><p>calculate expectation value
-:param state: state vector
-:type state: QuantumState</p>
+<dd><p>calculate expectation value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><em>QuantumState</em></a>) – state vector</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n_qubits</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">n_qubits</span><span class="p">)</span>
@@ -221,14 +228,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_CNOT_gate">
 <span class="sig-name descname"><span class="pre">add_CNOT_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_CNOT_gate" title="Link to this definition"></a></dt>
-<dd><p>add CNOT gate in gateArray
-:param control: control qubit index
-:type control: int
-:param target: target qubit index
-:type target: int</p>
+<dd><p>add CNOT gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>control</strong> (<em>int</em>) – control qubit index</p></li>
+<li><p><strong>target</strong> (<em>int</em>) – target qubit index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -241,12 +250,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_H_gate">
 <span class="sig-name descname"><span class="pre">add_H_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_H_gate" title="Link to this definition"></a></dt>
-<dd><p>add H gate in gateArray
-:param num: target qubit index
-:type num: int</p>
+<dd><p>add H gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>int</em>) – target qubit index</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -254,14 +264,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RX_gate">
 <span class="sig-name descname"><span class="pre">add_RX_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RX_gate" title="Link to this definition"></a></dt>
-<dd><p>add RX gate in gateArray
-:param num: target qubit index
-:type num: int
-:param theta: rotate angle
-:type theta: float</p>
+<dd><p>add RX gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>int</em>) – target qubit index</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – rotate angle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -274,14 +286,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RY_gate">
 <span class="sig-name descname"><span class="pre">add_RY_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RY_gate" title="Link to this definition"></a></dt>
-<dd><p>add RY gate in gateArray
-:param num: target qubit index
-:type num: int
-:param theta: rotate angle
-:type theta: float</p>
+<dd><p>add RY gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>int</em>) – target qubit index</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – rotate angle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,14 +303,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_RZ_gate">
 <span class="sig-name descname"><span class="pre">add_RZ_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_RZ_gate" title="Link to this definition"></a></dt>
-<dd><p>add RZ gate in gateArray
-:param num: target qubit index
-:type num: int
-:param theta: rotate angle
-:type theta: float</p>
+<dd><p>add RZ gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> (<em>int</em>) – target qubit index</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – rotate angle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -304,12 +320,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_T_gate">
 <span class="sig-name descname"><span class="pre">add_T_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_T_gate" title="Link to this definition"></a></dt>
-<dd><p>add T gate in gateArray
-:param num: target qubit index
-:type num: int</p>
+<dd><p>add T gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>int</em>) – target qubit index</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -317,12 +334,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_X_gate">
 <span class="sig-name descname"><span class="pre">add_X_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_X_gate" title="Link to this definition"></a></dt>
-<dd><p>add X gate in gateArray
-:param num: target qubit index
-:type num: int</p>
+<dd><p>add X gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>int</em>) – target qubit index</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -335,12 +353,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_Y_gate">
 <span class="sig-name descname"><span class="pre">add_Y_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_Y_gate" title="Link to this definition"></a></dt>
-<dd><p>add Y gate in gateArray
-:param num: target qubit index
-:type num: int</p>
+<dd><p>add Y gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>int</em>) – target qubit index</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -348,12 +367,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.add_Z_gate">
 <span class="sig-name descname"><span class="pre">add_Z_gate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.add_Z_gate" title="Link to this definition"></a></dt>
-<dd><p>add Z gate in gateArray
-:param num: target qubit index
-:type num: int</p>
+<dd><p>add Z gate in gateArray</p>
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index error</strong> – target index is out of range</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>int</em>) – target qubit index</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index error</strong> – target index is out of range</p>
 </dd>
 </dl>
 </dd></dl>
@@ -361,8 +381,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.get_depth">
 <span class="sig-name descname"><span class="pre">get_depth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.get_depth" title="Link to this definition"></a></dt>
-<dd><p>show circuit depth
-.. rubric:: Examples</p>
+<dd><p>show circuit depth</p>
+<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_X_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_RX_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -377,8 +397,8 @@
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.get_info">
 <span class="sig-name descname"><span class="pre">get_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.get_info" title="Link to this definition"></a></dt>
 <dd><p>show circuit information
-property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is ratate gate)
-.. rubric:: Examples</p>
+(gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is rotation gate))</p>
+<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_X_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span><span class="o">.</span><span class="n">add_RX_gate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -394,9 +414,12 @@ property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), the
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumCircuit.update_quantum_state">
 <span class="sig-name descname"><span class="pre">update_quantum_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><span class="pre">QuantumState</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumCircuit.update_quantum_state" title="Link to this definition"></a></dt>
-<dd><p>interface of calling internal apply methods
-:param state: target state to apply circuit
-:type state: QuantumState</p>
+<dd><p>interface of calling internal apply methods</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="#sqeleton.QuantumState" title="sqeleton.QuantumState"><em>QuantumState</em></a>) – target state to apply circuit</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -415,8 +438,8 @@ property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), the
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumState.get_probability_vector">
 <span class="sig-name descname"><span class="pre">get_probability_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.get_probability_vector" title="Link to this definition"></a></dt>
-<dd><p>show probability vector
-.. rubric:: Examples</p>
+<dd><p>show probability vector</p>
+<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">get_probability_vector</span><span class="p">()</span>
 <span class="go">|00&gt;: [1.]</span>
@@ -430,8 +453,8 @@ property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), the
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumState.get_state_vector">
 <span class="sig-name descname"><span class="pre">get_state_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.get_state_vector" title="Link to this definition"></a></dt>
-<dd><p>show state vector
-.. rubric:: Examples</p>
+<dd><p>show state vector</p>
+<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">    &gt;&gt;&gt; state.get_state_vector()</span>
 <span class="go">|00&gt;: [1.+0.j]</span>
@@ -445,9 +468,12 @@ property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), the
 <dl class="py method">
 <dt class="sig sig-object py" id="sqeleton.QuantumState.sampling">
 <span class="sig-name descname"><span class="pre">sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sqeleton.QuantumState.sampling" title="Link to this definition"></a></dt>
-<dd><p>sampling in the computational basis
-:param count: sampling number
-:type count: int</p>
+<dd><p>sampling in the computational basis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>) – sampling number</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">state</span><span class="o">.</span><span class="n">sampling</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
