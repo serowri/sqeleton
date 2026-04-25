@@ -4,16 +4,20 @@ import re
 
 class QuantumState:
     """manage state vector"""
+
     def __new__(cls, num: int):
         """validate number of qubit"""
+
         if num > 19:
             raise ValueError("Memory Attention!(Must n_qubits < 20)")
         return super().__new__(cls)
 
     def __init__(self, num: int):
         """inits a `QuantumState`.
+
         Args:
             num (int): number of qubit
+
         Examples:
             >>> state = QuantumState(2)
         """
@@ -24,6 +28,7 @@ class QuantumState:
 
     def get_state_vector(self) -> None:
         """show state vector
+
         Examples:
             >>> state = QuantumState(2)
 	        >>> state.get_state_vector()
@@ -39,6 +44,7 @@ class QuantumState:
     
     def get_probability_vector(self) -> None:
         """show probability vector
+
         Examples:
             >>> state = QuantumState(2)
             >>> state.get_probability_vector()
@@ -54,8 +60,10 @@ class QuantumState:
 
     def sampling(self, count: int) -> None:
         """sampling in the computational basis
+
         Args:
             count (int): sampling number
+
         Examples:
             >>> state = QuantumState(2)
             >>> state.sampling(1000)
@@ -100,8 +108,10 @@ class QuantumCircuit:
 
     def __init__(self, num: int):
         """inits a `QuantumCircuit`.
+
         Args:
             num (int): number of qubit
+
         Examples:
             >>> circuit = QuantumCircuit(2)
         """
@@ -110,10 +120,13 @@ class QuantumCircuit:
 
     def add_X_gate(self, num: int) -> None:
         """add X gate in gateArray
+
         Args:
             num (int): target qubit index
+
         Raises:
             index error: target index is out of range
+
         Examples:
             >>> circuit = QuantumCircuit(2)
             >>> circuit.add_X_gate(0)
@@ -125,8 +138,10 @@ class QuantumCircuit:
         return None
     def add_Y_gate(self, num: int) -> None:
         """add Y gate in gateArray
+
         Args:
             num (int): target qubit index
+
         Raises:
             index error: target index is out of range
         """
@@ -137,8 +152,10 @@ class QuantumCircuit:
         return None
     def add_Z_gate(self, num: int) -> None:
         """add Z gate in gateArray
+
         Args:
             num (int): target qubit index
+
         Raises:
             index error: target index is out of range
         """
@@ -149,8 +166,10 @@ class QuantumCircuit:
         return None
     def add_H_gate(self, num: int) -> None:
         """add H gate in gateArray
+
         Args:
             num (int): target qubit index
+
         Raises:
             index error: target index is out of range
         """
@@ -161,8 +180,10 @@ class QuantumCircuit:
         return None
     def add_T_gate(self, num: int) -> None:
         """add T gate in gateArray
+
         Args:
             num (int): target qubit index
+
         Raises:
             index error: target index is out of range
         """
@@ -174,11 +195,14 @@ class QuantumCircuit:
     
     def add_RX_gate(self, num: int, theta: float) -> None:
         """add RX gate in gateArray
+
         Args:
             num (int): target qubit index
             theta (float): rotate angle
+
         Raises:
             index error: target index is out of range
+
         Examples:
             >>> circuit = QuantumCircuit(2)
             >>> circuit.add_RX_gate(0, np.pi)
@@ -190,9 +214,11 @@ class QuantumCircuit:
         return None
     def add_RY_gate(self, num: int, theta: float) -> None:
         """add RY gate in gateArray
+
         Args:
             num (int): target qubit index
             theta (float): rotate angle
+
         Raises:
             index error: target index is out of range
         """
@@ -203,9 +229,11 @@ class QuantumCircuit:
         return None
     def add_RZ_gate(self, num: int, theta: float) -> None:
         """add RZ gate in gateArray
+
         Args:
             num (int): target qubit index
             theta (float): rotate angle
+
         Raises:
             index error: target index is out of range
         """
@@ -217,11 +245,14 @@ class QuantumCircuit:
 
     def add_CNOT_gate(self, control: int, target: int) -> None:
         """add CNOT gate in gateArray
+
         Args:
             control (int): control qubit index
             target (int): target qubit index
+
         Raises:
             index error: target index is out of range
+
         Examples:
             >>> circuit = QuantumCircuit(2)
             >>> circuit.add_CNOT_gate(0, 1)
@@ -234,7 +265,8 @@ class QuantumCircuit:
     
     def get_info(self) -> None:
         """show circuit information
-        property: gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is ratate gate)
+        (gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is rotation gate))
+
         Examples:
             >>> circuit = QuantumCircuit(2)
             >>> circuit.add_X_gate(0)
@@ -259,6 +291,7 @@ class QuantumCircuit:
 
     def get_depth(self) -> int:
         """show circuit depth
+
         Examples:
             >>> circuit = QuantumCircuit(2)
             >>> circuit.add_X_gate(0)
@@ -282,8 +315,10 @@ class QuantumCircuit:
     
     def update_quantum_state(self, state: QuantumState) -> None:
         """interface of calling internal apply methods
+
         Args:
             state (QuantumState): target state to apply circuit
+
         Examples:
             >>> state = QuantumState(2)
             >>> circuit = QuantumCircuit(2)
@@ -312,8 +347,10 @@ class QuantumCircuit:
     
     def _gate_validator(self, key):
         """internal: gate validator
+
         Args:
             key (str): gate one of the _gateBase_1q set
+
         Returns:
             matrix (NDArray): row matrix (2*2)
         """
@@ -331,9 +368,11 @@ class QuantumCircuit:
 
     def _rotate_gate_generator(self, key: str, theta):
         """internal: generate rotate gate
+
         Args:
             key (str): gate one of the _gateRotate_1q set
             theta (float): rotation angle
+
         Returns:
             no name (NDArray): row matrix (2*2)
         """
@@ -346,6 +385,7 @@ class QuantumCircuit:
     
     def _apply_1q_gate(self, state: QuantumState, matrix, value1: int) -> None:
         """internal: apply row matrix (1q) to state vector
+
         Args:
             state (QuantumState): state vector
             matrix (NDArray): row matrix (2*2)
@@ -360,6 +400,7 @@ class QuantumCircuit:
 
     def _apply_cnot_gate(self, state: QuantumState, value1: int, value2: int) -> None:
         """internal: apply cnot-gate to state vector
+
         Args:
             state (QuantumState): state vector
             value1 (int): control qubit index
@@ -396,8 +437,10 @@ class Operator:
 
     def __init__(self, num):
         """inits operator class
+
         Args:
             num (int): number of qubit
+
         Examples:
             >>> n_qubits = 2
             >>> observable = Operator(n_qubits)
@@ -407,9 +450,11 @@ class Operator:
 
     def add_oparator(self, s, coef=1.0) -> None:
         """add operator
+
         Args:
             s (str): operator string
             coef (any): coefficiency default(1.0)
+
         Examples:
             >>> observable = Operator(2)
             >>> observable.add_operator("Z(0), Z(1)", coef=2.0)
@@ -444,8 +489,10 @@ class Operator:
 
     def expectation_value(self, state: QuantumState):
         """calculate expectation value
+
         Args:
             state (QuantumState): state vector
+
         Examples:
             >>> n_qubits = 2
             >>> state = QuantumState(n_qubits)
@@ -465,8 +512,10 @@ class Operator:
 
     def _i_index(self, arg) -> int:
         """internal: index getter
+
         Args:
             arg (str): pauli operator and index
+
         Returns:
             index
         """
@@ -479,8 +528,10 @@ class Operator:
 
     def _x_index(self, arg) -> int:
         """internal: index getter
+
         Args:
             arg (str): pauli operator and index
+
         Returns:
             index
         """
@@ -493,8 +544,10 @@ class Operator:
 
     def _y_index(self, arg) -> int:
         """internal: index getter
+
         Args:
             arg (str): pauli operator and index
+
         Returns:
             index
         """
@@ -507,8 +560,10 @@ class Operator:
 
     def _z_index(self, arg) -> int:
         """internal: index getter
+
         Args:
             arg (str): pauli operator and index
+
         Returns:
             index
         """
@@ -521,8 +576,10 @@ class Operator:
 
     def _matrixGenerator(self, observable):
         """internal: Expand matrix based on given pauli operators
+
         Args:
             observable: operator array
+
         Returns:
             tmp: Expanded matrix
         """
