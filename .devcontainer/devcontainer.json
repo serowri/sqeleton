@@ -8,9 +8,22 @@
     "workspaceFolder": "/workspace/sqeleton",
     "customizations": {
         "vscode": {
+            "settings": {
+                "python.terminal.activateEnvironment": false
+            },
             "extensions": [
                 "ms-python.python"
             ]
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": false,
+            "installOhMyBash": true,
+            "upgradePackages": false,
+            "username": "automatic",
+            "uid": "automatic",
+            "gid": "automatic"
         }
     }
 }
