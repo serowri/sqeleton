@@ -3,9 +3,12 @@ name: Lint
 run-name: Lint
 
 on:
-  push:
+  pull_request:
     paths:
       - ".github/**/*.yml"
+  push:
+    branches:
+      - "main"
   workflow_dispatch:
 
 jobs:
