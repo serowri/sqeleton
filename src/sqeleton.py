@@ -1,6 +1,7 @@
 import numpy as np
-from collections import deque, defaultdict
 import re
+from collections import deque, defaultdict
+from typing import TypeAlias
 
 class QuantumState:
     """manage state vector"""
@@ -84,7 +85,7 @@ class QuantumState:
             print("|" + key + ">:", end=" ")
             print(sampling_result[key])
         return None
-
+qs: TypeAlias = QuantumState
 
 class QuantumCircuit:
     """have gate and methods"""
@@ -426,7 +427,7 @@ class QuantumCircuit:
         state.state = np.matmul(alpha+beta, state.state)
 
         return None
-    
+qc: TypeAlias = QuantumCircuit
 
 class Operator:
     I = np.array([[1, 0], [0 ,1]])
@@ -595,3 +596,4 @@ class Operator:
             elif operator == "Z":
                 tmp = np.kron(self.Z, tmp)
         return tmp
+op: TypeAlias = Operator
