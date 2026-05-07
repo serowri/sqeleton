@@ -1,8 +1,8 @@
 from src.sqeleton import *
 
 
-state = QuantumState(2)
-circuit = QuantumCircuit(2)
+state = qs(2) # state = QuantumState(2)
+circuit = qc(2) # circuit = QuantumCircuit(2)
 circuit.add_H_gate(0)
 circuit.add_CNOT_gate(0,1)
 circuit.update_quantum_state(state)

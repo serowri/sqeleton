@@ -6,7 +6,7 @@ Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircui
 See [documentation](https://serowri.github.io/sqeleton/)
 
 # Architecture
-## Class: QuantumState
+## Class: QuantumState (qs)
 n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero state.  
 
 <details>
@@ -17,7 +17,7 @@ n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero 
 - sampling
 </details>  
 
-## Class: QuantumCircuit
+## Class: QuantumCircuit (qc)
 Create matrix($2^n*2^n$) directly for each gate.  
 Extended single- and two-qubit gate matrices to n-qubit systems by explicitly constructing tensor-product (`np.kron(A,B)`) operators, derived and validated through manual linear algebra calculations (`np.matmul(C,D)`).  
 
@@ -30,7 +30,7 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 - get_depth
 </details>  
 
-## Class: Operator
+## Class: Operator (op)
 Same as circuit class, create matrix (observable) directly.  
 
 <details>
@@ -73,8 +73,8 @@ or simply copy row code of src/sqeleton.py and import it. (only need numpy)
 from src.sqeleton import *
 
 n_qubits = 2
-state = QuantumState(n_qubits)
-circuit = QuantumCircuit(n_qubits)
+state = qs(n_qubits)
+circuit = qc(n_qubits)
 circuit.add_H_gate(0)
 circuit.add_CNOT_gate(0,1)
 circuit.update_quantum_state(state)
