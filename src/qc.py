@@ -1,6 +1,6 @@
 import numpy as np
 from collections import deque
-from qs import *
+from .qs import *
 
 class QuantumCircuit:
     """have gate and methods"""

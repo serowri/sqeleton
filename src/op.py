@@ -1,7 +1,7 @@
 import numpy as np
 from collections import deque
 import re
-from qs import *
+from .qs import *
 
 class Operator:
     I = np.array([[1, 0], [0 ,1]])
