@@ -1,6 +1,5 @@
 from sqeleton import *
 import numpy as np
-import pytest
 
 def test_operator():
     def block_a():

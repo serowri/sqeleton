@@ -1,4 +1,4 @@
-from src.sqeleton import *
+from sqeleton import *
 
 
 state = qs(2) # state = QuantumState(2)
