@@ -66,11 +66,11 @@ cd sqeleton
 uv run python usage.py
 ```
 
-or simply copy row code of src/sqeleton.py and import it. (only need numpy)
+or simply copy row code of src/sqeleton and import it. (only need numpy)
 
 # Sample Python Code
 ```python
-from src.sqeleton import *
+from sqeleton import *
 
 n_qubits = 2
 state = qs(n_qubits)
