@@ -1,4 +1,7 @@
 # Sqeleton
+
+[![Python CI](https://github.com/serowri/sqeleton/actions/workflows/python_ci.yml/badge.svg)](https://github.com/serowri/sqeleton/actions/workflows/python_ci.yml)
+
 Sqeleton is a quantum circuit simulator and not for practical use simulator.    
 
 Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,Rotation pauli,H,T) and 2q-gate(CNOT)).  
