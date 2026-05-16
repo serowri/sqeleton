@@ -258,7 +258,8 @@ class QuantumCircuit:
             else:
                 return None
 
-        state.state[np.abs(state.state) < 1e-12] = 0 #optional
+        # optional
+        # state.state[np.abs(state.state) < 1e-12] = 0
         return None
     
     def _gate_validator(self, key):
