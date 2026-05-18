@@ -9,10 +9,11 @@ class QuantumCircuit:
     Y_gate = np.array([[0,-1j],[1j,0]])
     Z_gate = np.array([[1,0],[0,-1]])
     H_gate = np.array([[1,1],[1,-1]])/np.sqrt(2)
+    S_gate = np.array([[1,0],[0,1j]])
     T_gate = np.array([[1,0],[0,np.exp(1j*np.pi/4)]])
     P0 = np.array([[1,0],[0,0]]) # P0 ->|0><0|
     P1 = np.array([[0,0],[0,1]]) # P1 -> |1><1|
-    _gateBase_1q = {"x", "y", "z", "h", "t"}
+    _gateBase_1q = {"x", "y", "z", "h", "s", "t"}
     _gateRotate_1q = {"rx", "ry", "rz"}
     _gateBase_2q = {"cnot"}
 
@@ -93,6 +94,20 @@ class QuantumCircuit:
             print("not applied H_gate(index error).")
             return None
         self.gateArray.append(("h",num))
+        return None
+    def add_S_gate(self, num: int) -> None:
+        """add S gate in gateArray
+
+        Args:
+            num (int): target qubit index
+
+        Raises:
+            index error: target index is out of range
+        """
+        if num < 0 or self.num-1 < num:
+            print("not applied S_gate(index error).")
+            return None
+        self.gateArray.append(("s",num))
         return None
     def add_T_gate(self, num: int) -> None:
         """add T gate in gateArray
@@ -279,6 +294,8 @@ class QuantumCircuit:
             matrix = self.Z_gate
         elif(key == "h"):
             matrix = self.H_gate
+        elif(key == "s"):
+            matrix = self.S_gate
         elif(key == "t"):
             matrix = self.T_gate
         return matrix

@@ -41,6 +41,16 @@ jobs:
           pip install uv
           uv sync --all-extras --frozen
 
+      - name: Inspect Runner Hardware
+        run: |
+          echo "=== CPU Info ==="
+          nproc
+          lscpu | grep -E "Model name|CPU\(s\):|Thread\(s\) per core"
+          echo "=== Memory Info ==="
+          free -h
+          echo "=== Disk Info ==="
+          df -h /
+
       - name: Run pytest
         run: |
           uv run pytest -v
