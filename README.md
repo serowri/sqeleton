@@ -4,7 +4,7 @@
 
 Sqeleton is a quantum circuit simulator and not for practical use simulator.    
 
-Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,Rotation pauli,H,T) and 2q-gate(CNOT)).  
+Sqeleton has minimum functions such as QuantumState(state vector), QuantumCircuit(1q-gate(pauli,Rotation pauli,H,S,T) and 2q-gate(CNOT)).  
 
 See [documentation](https://serowri.github.io/sqeleton/)
 
@@ -27,7 +27,7 @@ Extended single- and two-qubit gate matrices to n-qubit systems by explicitly co
 <details>
 <summary>Methods</summary>
 
-- add_#_gate (#: X, Y, Z, H, T , RX, RY, RZ and CNOT)
+- add_#_gate (#: X, Y, Z, H, S, T, RX, RY, RZ and CNOT)
 - update_quantum_state
 - get_info
 - get_depth
