@@ -6,7 +6,7 @@ def test_operator():
         n_qubits = 1
         state = QuantumState(n_qubits)
         observable = Operator(n_qubits)
-        observable.add_oparator("Z(0)")
+        observable.add_operator("Z(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([1], dtype=complex)
@@ -19,7 +19,7 @@ def test_operator():
         circuit.add_X_gate(0)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("Z(0)")
+        observable.add_operator("Z(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([-1], dtype=complex)
@@ -29,7 +29,7 @@ def test_operator():
         n_qubits = 1
         state = QuantumState(n_qubits)
         observable = Operator(n_qubits)
-        observable.add_oparator("Z(0)", coef=-1.0)
+        observable.add_operator("Z(0)", coef=-1.0)
         eval = observable.expectation_value(state)
 
         expected = np.array([-1], dtype=complex)
@@ -43,7 +43,7 @@ def test_operator():
         circuit.add_CNOT_gate(0, 1)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("Z(0), Z(1)")
+        observable.add_operator("Z(0), Z(1)")
         eval = observable.expectation_value(state)
 
         expected = np.array([1], dtype=complex)
@@ -57,7 +57,7 @@ def test_operator():
         circuit.add_CNOT_gate(0, 1)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("Z(0), Z(1)", coef=-1.0)
+        observable.add_operator("Z(0), Z(1)", coef=-1.0)
         eval = observable.expectation_value(state)
 
         expected = np.array([-1], dtype=complex)
@@ -76,7 +76,7 @@ def test_operator():
         circuit.add_H_gate(0)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("X(0)")
+        observable.add_operator("X(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([1], dtype=complex)
@@ -90,7 +90,7 @@ def test_operator():
         circuit.add_Z_gate(0)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("X(0)")
+        observable.add_operator("X(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([-1], dtype=complex)
@@ -107,7 +107,7 @@ def test_operator():
         circuit.add_RZ_gate(0, np.pi/2)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("Y(0)")
+        observable.add_operator("Y(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([1], dtype=complex)
@@ -121,7 +121,7 @@ def test_operator():
         circuit.add_RZ_gate(0, -np.pi/2)
         circuit.update_quantum_state(state)
         observable = Operator(n_qubits)
-        observable.add_oparator("Y(0)")
+        observable.add_operator("Y(0)")
         eval = observable.expectation_value(state)
 
         expected = np.array([-1], dtype=complex)
