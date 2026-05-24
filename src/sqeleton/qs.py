@@ -21,43 +21,50 @@ class QuantumState:
             >>> state = QuantumState(2)
         """
         self.num = num
-        self.state = (np.zeros((2**num, 1), dtype=complex))
+        self.dim = 2**num
+        self.state = (np.zeros((self.dim, 1), dtype=complex))
         self.state[0][0] = 1
         self.digit = "0" + str(num) + "b"
 
-    def get_state_vector(self) -> None:
+    def get_state_vector(self) -> str:
         """show state vector
 
         Examples:
             >>> state = QuantumState(2)
-	        >>> state.get_state_vector()
+	        >>> s = state.get_state_vector()
+            >>> print(s)
             |00>: [1.+0.j]
             |01>: [0.+0.j]
             |10>: [0.+0.j]
             |11>: [0.+0.j]
         """
+        s = ""
         for i, vector in enumerate(self.state):
-            print("|" + format(i, self.digit) +">:", end=" ")
-            print(vector)
-        return None
+            s += "|" + format(i, self.digit) +">: " + str(vector)
+            if (i < self.dim-1):
+                s += "\n"
+        return s
     
-    def get_probability_vector(self) -> None:
+    def get_probability_vector(self) -> str:
         """show probability vector
 
         Examples:
             >>> state = QuantumState(2)
-            >>> state.get_probability_vector()
+            >>> s = state.get_probability_vector()
+            >>> print(s)
             |00>: [1.]
             |01>: [0.]
             |10>: [0.]
             |11>: [0.]
         """
+        s = ""
         for i, vector in enumerate(self.state):
-            print("|" + format(i, self.digit) + ">:", end=" ")
-            print(vector.real**2+vector.imag**2)
-        return None
+            s += "|" + format(i, self.digit) + ">: " + str(vector.real**2+vector.imag**2)
+            if (i < self.dim-1):
+                s += "\n"
+        return s
 
-    def sampling(self, count: int) -> None:
+    def sampling(self, count: int) -> str:
         """sampling in the computational basis
 
         Args:
@@ -65,21 +72,24 @@ class QuantumState:
 
         Examples:
             >>> state = QuantumState(2)
-            >>> state.sampling(1000)
+            >>> s = state.sampling(1000)
+            >>> print(s)
             |00>: 1000
             |01>: 0
             |10>: 0
             |11>: 0
         """
+        s = ""
         probability_list = [vector[0].real**2+vector[0].imag**2 for vector in self.state] #note: self.state is 2-dimensional array
-        bitarray = [format(i, self.digit) for i in range(2**self.num)]
+        bitarray = [format(i, self.digit) for i in range(self.dim)]
         result = np.random.choice(bitarray, size=count, replace=True, p=probability_list)
         sampling_result = defaultdict(list)
-        for i in range(2**self.num):
+        for i in range(self.dim):
             sampling_result[format(i, self.digit)] = 0
         for i in range(count):
             sampling_result[result[i]] += 1
-        for key in bitarray:
-            print("|" + key + ">:", end=" ")
-            print(sampling_result[key])
-        return None
+        for i, key in enumerate(bitarray):
+            s += "|" + str(key) + ">: " + str(sampling_result[key])
+            if (i < self.dim-1):
+                s += "\n"
+        return s
