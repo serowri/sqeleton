@@ -26,6 +26,22 @@ class QuantumState:
         self.state[0][0] = 1
         self.digit = "0" + str(num) + "b"
 
+    def set_computational_basis(self, num: int) -> None:
+        """set state
+
+        Args:
+            num (int): computational basis index
+
+        Examples:
+            >>> state = QuantumState(2)
+            >>> state.set_computational_basis(3)
+        """
+        if (num < 0 or num > self.dim-1):
+            raise IndexError("argment must be within 0 and 2^n")
+        self.state[:] = 0
+        self.state[num][0] = 1
+        return None
+
     def get_state_vector(self) -> str:
         """show state vector
 
