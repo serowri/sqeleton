@@ -1,5 +1,6 @@
 import numpy as np
 from collections import defaultdict
+import random
 
 class QuantumState:
     """manage state vector"""
@@ -25,6 +26,42 @@ class QuantumState:
         self.state = (np.zeros((self.dim, 1), dtype=complex))
         self.state[0][0] = 1
         self.digit = "0" + str(num) + "b"
+
+    def set_computational_basis(self, num: int) -> None:
+        """set state
+
+        Args:
+            num (int): computational basis index
+
+        Examples:
+            >>> state = QuantumState(2)
+            >>> state.set_computational_basis(3)
+        """
+        if (num < 0 or num > self.dim-1):
+            raise IndexError("argment must be within 0 and 2^n")
+        self.state[:] = 0
+        self.state[num][0] = 1
+        return None
+    
+    def set_Haar_random_state(self, seed=random.random()) -> None:
+        """set random state
+
+        Args:
+            seed (float): optional random seed
+
+        Examples:
+            >>> state = QuantumState(2)
+            >>> state.set_Haar_random_state()
+        """
+        tmp = 0
+        random.seed(seed)
+        for i in range(self.dim):
+            real, imag = random.uniform(-1, 1), random.uniform(-1, 1)
+            self.state[i][0] = real + imag*1j
+            tmp += self.state[i][0] * self.state[i][0].conjugate()
+        self.state[:] = self.state[:] / np.sqrt(tmp)
+
+        return None
 
     def get_state_vector(self) -> str:
         """show state vector
