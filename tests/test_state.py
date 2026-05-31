@@ -1,5 +1,6 @@
 from sqeleton import *
 import numpy as np
+import random
 
 #-------------------------------------------------#
 # Quantum entanglement
@@ -45,3 +46,25 @@ def test_ghz_3q_1():
     ], dtype=complex)
 
     assert np.allclose(state.state, expected)
+
+def test_set_computational_basis():
+    n_qubits = 4
+    state = QuantumState(n_qubits)
+    choices = [i for i in range(state.dim)]
+    random_choice = random.choice(choices)
+    state.set_computational_basis(random_choice)
+    expected = np.array([
+        [1] if i == random_choice else [0] for i in range(state.dim)
+    ], dtype=complex)
+
+    assert np.allclose(state.state, expected)
+
+def test_set_Haar_random():
+    n_qubits = 4
+    state = QuantumState(n_qubits)
+    state.set_Haar_random_state()
+    tmp = 0
+    for i in range(state.dim):
+        tmp += state.state[i][0] * state.state[i][0].conjugate()
+    
+    assert np.allclose(tmp, 1.0)
