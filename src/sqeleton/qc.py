@@ -194,7 +194,7 @@ class QuantumCircuit:
         self.gateArray.append(("cnot",control,target))
         return None
     
-    def get_info(self) -> None:
+    def get_info(self) -> str:
         """show circuit information
         (gateType (x,y,z,h,t,rx,ry,rx,cnot), qubit index (target, control), theta (if gate is rotation gate))
 
@@ -203,22 +203,26 @@ class QuantumCircuit:
             >>> circuit.add_X_gate(0)
             >>> circuit.add_RX_gate(0, np.pi)
             >>> circuit.add_CNOT_gate(0, 1)
-            >>> circuit.get_info()
+            >>> s = circuit.get_info()
+            >>> print(s)
             gateType: x , target: 0
             gateType: rx , target: 0 , theta: 3.141592653589793
             gateType: cnot , control: 0 , target: 1
         """
+        s = ""
         if len(self.gateArray) == 0:
             print("No gates.")
             return None
-        for gateInfo in self.gateArray:
+        for i, gateInfo in enumerate(self.gateArray):
             if gateInfo[0] in self._gateBase_1q:
-                print("gateType:", gateInfo[0], ", target:", gateInfo[1])
+                s += "gateType:" + str(gateInfo[0]) + ", target:" + str(gateInfo[1])
             if gateInfo[0] in self._gateRotate_1q:
-                print("gateType:", gateInfo[0], ", target:", gateInfo[1], ", theta:", gateInfo[2])
+                s += "gateType:" + str(gateInfo[0]) + ", target:" + str(gateInfo[1]) + ", theta:" + str(gateInfo[2])
             if gateInfo[0] in self._gateBase_2q:
-                print("gateType:", gateInfo[0], ", control:", gateInfo[1], ", target:", gateInfo[2])
-        return None
+                s += "gateType:" + str(gateInfo[0]) + ", control:" + str(gateInfo[1]) + ", target:" + str(gateInfo[2])
+            if (i < len(self.gateArray)-1):
+                s += "\n"
+        return s
 
     def get_depth(self) -> int:
         """show circuit depth
@@ -228,8 +232,9 @@ class QuantumCircuit:
             >>> circuit.add_X_gate(0)
             >>> circuit.add_RX_gate(0, np.pi)
             >>> circuit.add_CNOT_gate(0, 1)
-            >>> circuit.get_depth()
-            circuit depth : 3
+            >>> depth = circuit.get_depth()
+            >>> print("circuit depth: " + str(depth))
+            circuit depth: 3
         """
         backet = np.zeros(self.num, dtype=int)
         for key, value1, *rest in self.gateArray:

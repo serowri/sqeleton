@@ -23,7 +23,7 @@ class Operator:
         self.num = num
         self.observableArray = deque()
 
-    def add_oparator(self, s, coef=1.0) -> None:
+    def add_operator(self, s, coef=1.0) -> None:
         """add operator
 
         Args:
@@ -73,7 +73,9 @@ class Operator:
             >>> state = QuantumState(n_qubits)
             >>> observable = Operator(n_qubits)
             >>> observable.add_operator("Z(0), Z(1)", coef=2.0)
-            >>> observable.expectation_value(state)
+            >>> value = observable.expectation_value(state)
+            >>> print(value)
+            [2.+0.j]
         """
         if state.num != self.num:
             print("dimensions error!")
