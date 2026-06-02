@@ -15,6 +15,8 @@ n-qubits QuantumState is implemented by numpy column vector($2^n$) and set zero 
 <details>
 <summary>Methods</summary>
 
+- set_computational_basis
+- set_Haar_random_state
 - get_state_vector
 - get_probability_vector
 - sampling
