@@ -63,8 +63,6 @@ def test_set_Haar_random():
     n_qubits = 4
     state = QuantumState(n_qubits)
     state.set_Haar_random_state()
-    tmp = 0
-    for i in range(state.dim):
-        tmp += state.state[i][0] * state.state[i][0].conjugate()
+    total = np.vdot(state.state, state.state)
     
-    assert np.allclose(tmp, 1.0)
+    assert np.allclose(total, 1.0)

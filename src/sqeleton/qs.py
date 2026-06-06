@@ -43,7 +43,7 @@ class QuantumState:
         self.state[num][0] = 1
         return None
     
-    def set_Haar_random_state(self, seed=random.random()) -> None:
+    def set_Haar_random_state(self, seed: int=None) -> None:
         """set random state
 
         Args:
@@ -53,13 +53,13 @@ class QuantumState:
             >>> state = QuantumState(2)
             >>> state.set_Haar_random_state()
         """
-        tmp = 0
-        random.seed(seed)
-        for i in range(self.dim):
-            real, imag = random.uniform(-1, 1), random.uniform(-1, 1)
-            self.state[i][0] = real + imag*1j
-            tmp += self.state[i][0] * self.state[i][0].conjugate()
-        self.state[:] = self.state[:] / np.sqrt(tmp)
+        if seed is not None:
+            np.random.seed(seed)
+        real = np.random.normal(loc=0.0, scale=1.0, size=(self.dim, 1))
+        imag = np.random.normal(loc=0.0, scale=1.0, size=(self.dim, 1))
+        vector = real + 1j*imag
+        norm = np.linalg.norm(vector)
+        self.state = vector / norm
 
         return None
 
